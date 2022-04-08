@@ -24,15 +24,15 @@ public class UsuarioDAO {
         }
     }
 
-    public ResultSet updateUsuario(Usuario usuario){
+    public int updateUsuario(Usuario usuario){
         String query = "UPDATE usuario SET nome='" + usuario.getNome() + "', sexo='" + usuario.getSexo() + "', endereco='" + usuario.getEndereco() + "', email='" + usuario.getEmail() + "', senha='" + usuario.getSenha() + "' WHERE cpf='" + usuario.getCpf() + "'";
+//        System.out.println(query);
         try{
             Statement stmt = conexao.createStatement();
-            ResultSet rs = null;
-            rs = stmt.executeQuery(query);
-            return rs;
+            return stmt.executeUpdate(query);
         }catch(Exception e){
             e.printStackTrace();
         }
+        return 0;
     }
 }

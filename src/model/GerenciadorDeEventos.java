@@ -25,10 +25,11 @@ public class GerenciadorDeEventos {
         conexao = ModuloConexao.getInstance().sqlConnection;
         TelaManutencaoUsuario telaManutencaoUsuario = new TelaManutencaoUsuario();
         telaManutencaoUsuario.setVisible(true);
-        try {
-            conexao.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(GerenciadorDeEventos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            conexao.close();
+//            System.out.println("Conexao com BD FECHADA!");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(GerenciadorDeEventos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }

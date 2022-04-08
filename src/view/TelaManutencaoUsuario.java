@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.UsuarioController;
+
 /**
  *
  * @author pablo
@@ -151,7 +153,8 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        // TODO add your handling code here:
+        UsuarioController usuarioController = new UsuarioController();
+        usuarioController.updateUsuario(txtNome.getText(), txtCpf.getText(), txtSexo.getText(), txtEndereco.getText(), txtEmail.getText(), txtSenha.getText());
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
