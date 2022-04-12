@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.UsuarioController;
+import static model.GerenciadorDeEventos.usuarioController;
 
 /**
  *
@@ -12,6 +12,8 @@ import controller.UsuarioController;
  */
 public class TelaManutencaoUsuario extends javax.swing.JFrame {
 
+    private final String cpfTxt = "123.456.789-01";
+    
     /**
      * Creates new form TelaManutencaoUsuario
      */
@@ -28,6 +30,8 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         labelNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
@@ -43,10 +47,17 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manutenção do usuário");
 
         labelNome.setText("Nome");
+
+        txtCpf.setEditable(false);
+        txtCpf.setText(cpfTxt.toString());
 
         labelCpf.setText("CPF");
 
@@ -153,7 +164,6 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        UsuarioController usuarioController = new UsuarioController();
         usuarioController.updateUsuario(txtNome.getText(), txtCpf.getText(), txtSexo.getText(), txtEndereco.getText(), txtEmail.getText(), txtSenha.getText());
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -198,6 +208,8 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelEndereco;

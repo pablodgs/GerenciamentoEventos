@@ -4,12 +4,13 @@
  */
 package model;
 
+import controller.UsuarioController;
 import dal.ModuloConexao;
 import dal.UsuarioDAO;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.sql.SQLException;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import view.TelaManutencaoUsuario;
 
 /**
@@ -19,6 +20,7 @@ import view.TelaManutencaoUsuario;
 public class GerenciadorDeEventos {
     public static Connection conexao = null;
     public static UsuarioDAO usuarioDAO = null;
+    public static UsuarioController usuarioController = new UsuarioController();
 
     public static void main(String[] args){
         usuarioDAO = new UsuarioDAO();

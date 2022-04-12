@@ -14,6 +14,12 @@ import java.sql.ResultSet;
  */
 public class UsuarioController {
     public void updateUsuario(String nome, String cpf, String sexo, String endereco, String email, String senha){
+//        System.out.println(nome);
+//        System.out.println(cpf);
+//        System.out.println(sexo);
+//        System.out.println(endereco);
+//        System.out.println(email);
+//        System.out.println(senha);
         Usuario usuario = new Usuario(nome, cpf, sexo, endereco, email, senha);
         int rs;
         rs = usuarioDAO.updateUsuario(usuario);
