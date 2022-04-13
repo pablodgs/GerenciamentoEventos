@@ -4,6 +4,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import static model.GerenciadorDeEventos.usuarioController;
 
 /**
@@ -46,6 +47,8 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
         txtSenha = new javax.swing.JPasswordField();
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        deleteBtn = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -69,7 +72,6 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
 
         labelSenha.setText("Senha");
 
-        saveBtn.setBackground(new java.awt.Color(102, 255, 102));
         saveBtn.setText("Salvar");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,11 +79,18 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
             }
         });
 
-        cancelBtn.setBackground(new java.awt.Color(255, 102, 102));
         cancelBtn.setText("Cancelar");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
+            }
+        });
+
+        deleteBtn.setBackground(new java.awt.Color(255, 153, 153));
+        deleteBtn.setText("Deletar");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
             }
         });
 
@@ -118,11 +127,16 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
                                 .addComponent(labelNome)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(cancelBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveBtn)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cancelBtn)
+                                .addGap(56, 56, 56)
+                                .addComponent(deleteBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(saveBtn)))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,10 +166,13 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn)
-                    .addComponent(cancelBtn))
+                    .addComponent(cancelBtn)
+                    .addComponent(deleteBtn))
                 .addGap(36, 36, 36))
         );
 
@@ -164,12 +181,35 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        usuarioController.updateUsuario(txtNome.getText(), txtCpf.getText(), txtSexo.getText(), txtEndereco.getText(), txtEmail.getText(), txtSenha.getText());
+        boolean updated;
+        updated = usuarioController.updateUsuario(txtNome.getText(), txtCpf.getText(), txtSexo.getText(), txtEndereco.getText(), txtEmail.getText(), txtSenha.getText());
+        if(updated){
+            JOptionPane.showMessageDialog(rootPane, "SUCESSO: Usuario ATUALIZADO.");
+        } else{
+            JOptionPane.showMessageDialog(rootPane, "FALHA: Usuario NÃO atualizado.");
+        }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int input;
+        boolean deleted;
+        input = JOptionPane.showConfirmDialog(rootPane, "Deseja deletar sua conta?");
+        switch(input){
+            case 0 -> {
+                System.out.println("Yes");
+                deleted = usuarioController.deleteUsuario(txtCpf.getText());
+                if(deleted){
+                    JOptionPane.showMessageDialog(rootPane, "SUCESSO: Conta DELETADA.");
+                }
+            }
+            case 1 -> System.out.println("No");
+            case 2 -> System.out.println("Cancel");
+        }
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,7 +248,9 @@ public class TelaManutencaoUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelEmail;

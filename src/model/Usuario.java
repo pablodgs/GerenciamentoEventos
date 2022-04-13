@@ -24,6 +24,10 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
     }
+    
+    public Usuario(String cpf){
+        this.cpf = cpf;
+    }
 
     public String getNome(){
         return this.nome;

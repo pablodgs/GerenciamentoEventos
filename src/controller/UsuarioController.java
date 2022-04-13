@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  * @author pablo
  */
 public class UsuarioController {
-    public void updateUsuario(String nome, String cpf, String sexo, String endereco, String email, String senha){
+    public boolean updateUsuario(String nome, String cpf, String sexo, String endereco, String email, String senha){
 //        System.out.println(nome);
 //        System.out.println(cpf);
 //        System.out.println(sexo);
@@ -24,9 +24,34 @@ public class UsuarioController {
         int rs;
         rs = usuarioDAO.updateUsuario(usuario);
         if(rs != 0){
-            // chamada de função da tela
+            // chamada de função da TelaManutencaoUsuario
             System.out.println("Usuario ATUALIZADO!");
-            System.out.println(rs);
+            return true;
+        } else {
+            // chamada de função da TelaManutencaoUsuario
+            System.out.println("Usuario NAO ATUALIZADO!");
+            return false;
+        }
+    }
+    
+    public boolean deleteUsuario(String cpf){
+//        System.out.println(nome);
+//        System.out.println(cpf);
+//        System.out.println(sexo);
+//        System.out.println(endereco);
+//        System.out.println(email);
+//        System.out.println(senha);
+        Usuario usuario = new Usuario(cpf);
+        boolean deleted;
+        deleted = usuarioDAO.deleteUsuario(usuario);
+        if(deleted){
+            // chamada de função da TelaManutencaoUsuario
+            System.out.println("Usuario DELETADO!");
+            return true;
+        } else {
+            // chamada de função da TelaManutencaoUsuario
+            System.out.println("Usuario NAO DELETADO!");
+            return false;
         }
     }
 }
