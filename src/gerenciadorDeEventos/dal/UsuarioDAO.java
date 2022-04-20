@@ -6,15 +6,12 @@ package gerenciadorDeEventos.dal;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import gerenciadorDeEventos.model.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 /**
  *
  * @author pablo
@@ -73,15 +70,9 @@ public class UsuarioDAO {
         String cpf = rs.getString("cpf");
         String endereco = rs.getString("endereco");
         String email = rs.getString("email");
-        int sexo = rs.getInt("sexo");
+        String sexo = rs.getString("sexo");
        
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuario.setSenha(senha);
-        usuario.setCpf(cpf);
-        usuario.setEndereco(endereco);
-        usuario.setEmail(email);
-        usuario.setSexo(sexo);
+        Usuario usuario = new Usuario(nome, cpf, sexo, endereco, email, senha);
         return usuario;
     }
     

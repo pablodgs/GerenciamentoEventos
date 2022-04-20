@@ -9,8 +9,7 @@ import java.sql.Connection;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import gerenciadorDeEventos.controller.ControladorUsuario;
-import gerenciadorDeEventos.dal.ModuloConexao;
+import gerenciadorDeEventos.controller.UsuarioController;
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.view.TelaPrincipal;
 //import java.sql.SQLException;
@@ -25,7 +24,7 @@ import gerenciadorDeEventos.view.TelaPrincipal;
 public class gerenciadorDeEventos {
     public static Connection conexao = null;
     public static UsuarioDAO usuarioDAO = null;
-    public static ControladorUsuario usuarioController = new ControladorUsuario();
+    public static UsuarioController usuarioController = new UsuarioController();
 
     public static void main(String[] args){
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("GerenciadorDeEventosDb");

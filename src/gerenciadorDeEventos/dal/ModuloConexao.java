@@ -49,7 +49,7 @@ public class ModuloConexao {
             //define a string de conexão com o banco de dados MySQL.
             //Lembrando que meuUsuario e minhaSenha devem ser substituídos
             //pelo usuário e senha utilizados para conectar com o banco de dados.
-            String textoConexao = "jdbc:mysql://localhost/GerenciadordeEventosDb?user=root&password=1212";
+            String textoConexao = "jdbc:mysql://localhost/GerenciadordeEventosDb?user=admin&password=admin";
                                   
             //adquire a conexão
             sqlConnection = DriverManager.getConnection(textoConexao);

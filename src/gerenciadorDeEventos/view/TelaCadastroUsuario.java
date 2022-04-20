@@ -6,7 +6,7 @@
 package gerenciadorDeEventos.view;
 
 import javax.swing.JOptionPane;
-import gerenciadorDeEventos.controller.ControladorUsuario;
+import gerenciadorDeEventos.controller.UsuarioController;
 
 /**
  *
@@ -75,6 +75,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel6.setText("Selecione o sexo: ");
 
         jComboBoxSexoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jComboBoxSexoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSexoUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Entre com a senha: ");
 
@@ -201,7 +206,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         System.out.println(cpf);
         
         if(senha.equals(senhaReal)){
-            ControladorUsuario controlador = new ControladorUsuario();
+            UsuarioController controlador = new UsuarioController();
             int cadastrado = controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
             if(cadastrado == 1){
                 JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
@@ -226,6 +231,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void jTextFieldCpfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCpfUsuarioActionPerformed
+
+    private void jComboBoxSexoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxSexoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
