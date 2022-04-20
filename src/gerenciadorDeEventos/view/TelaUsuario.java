@@ -5,7 +5,7 @@
  */
 package gerenciadorDeEventos.view;
 
-import gerenciadorDeEvetnos.segurança.LoginSession;
+import gerenciadorDeEventos.segurança.LoginSession;
 
 /**
  *

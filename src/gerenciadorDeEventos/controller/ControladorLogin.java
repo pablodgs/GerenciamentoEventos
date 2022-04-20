@@ -7,8 +7,8 @@ package gerenciadorDeEventos.controller;
 
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.model.Usuario;
-import gerenciadorDeEvetnos.segurança.Autenticacao;
-import gerenciadorDeEvetnos.segurança.LoginSession;
+import gerenciadorDeEventos.segurança.Autenticacao;
+import gerenciadorDeEventos.segurança.LoginSession;
 import javax.swing.JOptionPane;
 
 /**

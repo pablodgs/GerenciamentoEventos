@@ -7,7 +7,7 @@ package gerenciadorDeEventos.view;
 
 import gerenciadorDeEventos.controller.ControladorLogin;
 import gerenciadorDeEventos.model.Usuario;
-import gerenciadorDeEvetnos.segurança.Autenticacao;
+import gerenciadorDeEventos.segurança.Autenticacao;
 import javax.swing.JOptionPane;
 
 /**
