@@ -8,13 +8,14 @@ package gerenciadorDeEventos.controller;
 import java.util.List;
 import gerenciadorDeEventos.model.Usuario;
 import gerenciadorDeEventos.dal.UsuarioDAO;
+import static gerenciadorDeEventos.model.gerenciadorDeEventos.usuarioDAO;
 
 
 /**
  *
  * @author lucas
  */
-public class ControladorUsuario {
+public class UsuarioController {
  
     @SuppressWarnings("empty-statement")
     public int CadastrarUsuario(String nomeUsuario, String endereco, String cpf, String senha, String email, String sexo){
@@ -24,22 +25,16 @@ public class ControladorUsuario {
         usuario.setCpf(cpf);
         usuario.setSenha(senha);
         usuario.setEmail(email);
-        if(sexo == "Masculino"){
-            usuario.setSexo(0);
-        }else{
-            usuario.setSexo(1);
-        }
+        usuario.setSexo(sexo);
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        List<Usuario> usuarios = usuarioDAO.BuscarTodos();
+        Usuario usuarioResult = usuarioDAO.readUsuario(usuario.getCpf());
+
         
-        for(Usuario usuario2: usuarios){
-            if(usuario2.getCpf().compareTo(usuario.getCpf()) == 0){
-                return 0;
-            }
+        if(usuarioResult == null){
+            usuarioDAO.cadastrar(usuario);
+            return 1;
         }
-        
-        usuarioDAO.cadastrar(usuario);;
-        return 1;
+        return 0;
     }
     
 }

@@ -21,7 +21,7 @@ public class Palestrante {
     private String senha;
     private String endereco;
     private String email;
-    private int sexo;
+    private String sexo;
     private String telefone;
     private String formacao;
     private String experiencias;
@@ -70,11 +70,11 @@ public class Palestrante {
         this.email = email;
     }
 
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(int sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

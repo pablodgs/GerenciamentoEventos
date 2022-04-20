@@ -8,7 +8,7 @@ public class Usuario {
     @Id
     private String cpf;
     private String nome;
-    private int sexo;
+    private String sexo;
     private String endereco;
     private String email;
     private String senha;
@@ -18,7 +18,7 @@ public class Usuario {
     public Usuario() {
     }
     
-    public Usuario(String nome, String cpf, int sexo, String endereco, String email, String senha) {
+    public Usuario(String nome, String cpf, String sexo, String endereco, String email, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.sexo = sexo;
@@ -43,7 +43,7 @@ public class Usuario {
         return cpf;
     }
 
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -75,7 +75,7 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public void setSexo(int sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

@@ -6,7 +6,7 @@
 package gerenciadorDeEventos.view;
 
 import javax.swing.JOptionPane;
-import gerenciadorDeEventos.controller.ControladorUsuario;
+import gerenciadorDeEventos.controller.UsuarioController;
 
 /**
  *
@@ -201,7 +201,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         System.out.println(cpf);
         
         if(senha.equals(senhaReal)){
-            ControladorUsuario controlador = new ControladorUsuario();
+            UsuarioController controlador = new UsuarioController();
             int cadastrado = controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
             if(cadastrado == 1){
                 JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");

@@ -15,13 +15,13 @@ import javax.persistence.Id;
 @Entity
 public class Criador {
     @Id
-    private int cpf;
+    private String cpf;
     private String nome;
     private String senha;
-    private int cnpj;
+    private String cnpj;
     private String endereco;
     private String email;
-    private int sexo;
+    private String sexo;
     private String telefone;
     private String dadosPagamento;
     
@@ -45,19 +45,19 @@ public class Criador {
         this.senha = senha;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -77,11 +77,11 @@ public class Criador {
         this.email = email;
     }
 
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(int sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
