@@ -44,13 +44,13 @@ public class ModuloConexao {
         try {
             //cria uma nova instancia utilizando o driver que foi adicionado
             //à biblioteca atraves do arquivo .jar
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
             //define a string de conexão com o banco de dados MySQL.
             //Lembrando que meuUsuario e minhaSenha devem ser substituídos
             //pelo usuário e senha utilizados para conectar com o banco de dados.
-            String textoConexao = "jdbc:mysql://root@localhost:3306//venda?user=root&password=1212";
-
+            String textoConexao = "jdbc:mysql://localhost/GerenciadordeEventosDb?user=root&password=1212";
+                                  
             //adquire a conexão
             sqlConnection = DriverManager.getConnection(textoConexao);
         } catch (Exception e) {
