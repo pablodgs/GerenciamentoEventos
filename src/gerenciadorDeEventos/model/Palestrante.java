@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Entity
 public class Palestrante {
     @Id
-    private int cpf;
+    private String cpf;
     private String nome;
     private String senha;
     private String endereco;
@@ -28,6 +28,18 @@ public class Palestrante {
     
     public Palestrante(){
         
+    }
+    
+    public Palestrante(String nome, String cpf, String sexo, String endereco, String email, String senha, String experiencia, String formacao, String telefone){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.sexo = sexo;
+        this.endereco = endereco;
+        this.email = email;
+        this.senha = senha;
+        this.experiencias = experiencia;
+        this.formacao = formacao;
+        this.telefone = telefone;
     }
 
     public String getNome() {
@@ -46,11 +58,11 @@ public class Palestrante {
         this.senha = senha;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

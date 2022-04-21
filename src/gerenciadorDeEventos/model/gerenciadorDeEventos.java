@@ -5,6 +5,7 @@
  */
 package gerenciadorDeEventos.model;
 
+import gerenciadorDeEventos.controller.PalestranteController;
 import java.sql.Connection;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,6 +27,7 @@ public class gerenciadorDeEventos {
     public static Connection conexao = ModuloConexao.getInstance().sqlConnection;
     public static UsuarioDAO usuarioDAO = new UsuarioDAO();
     public static UsuarioController usuarioController = new UsuarioController();
+    public static PalestranteController palestranteController = new PalestranteController();
 
     public static void main(String[] args){
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("GerenciadorDeEventosDb");

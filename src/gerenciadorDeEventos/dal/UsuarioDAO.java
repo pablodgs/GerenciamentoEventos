@@ -22,39 +22,31 @@ import java.util.stream.Collectors;
  */
 public class UsuarioDAO {
     private Usuario pegaDados(ResultSet rs) throws SQLException{
-        if(rs == null){
-            return null;
+        if(rs != null && rs.next()){
+            String nome = rs.getString("nome");
+            String senha = rs.getString("senha");
+            String cpf = rs.getString("cpf");
+            String endereco = rs.getString("endereco");
+            String email = rs.getString("email");
+            String sexo = rs.getString("sexo");
+            
+            Usuario usuario = new Usuario(nome, cpf, sexo, endereco, email, senha);
+            return usuario;
         }
-
-        String nome = rs.getString("nome");
-        String senha = rs.getString("senha");
-        String cpf = rs.getString("cpf");
-        String endereco = rs.getString("endereco");
-        String email = rs.getString("email");
-        String sexo = rs.getString("sexo");
-        System.out.println(" " + nome);
-        
-        
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuario.setSenha(senha);
-        usuario.setCpf(cpf);
-        usuario.setEndereco(endereco);
-        usuario.setEmail(email);
-        usuario.setSexo(sexo);
-
-        return usuario;
+        return null;
     }
 
     public Usuario readUsuario(String cpf){
         ModuloConexao conec = new ModuloConexao();
-        Connection dao = conec.getInstance().sqlConnection;
-        String query = "select * from usuario where cpf = '" + cpf + "';";
+        String sql = "select * from usuario where cpf = '" + cpf + "';";
         ResultSet rs = null;
         try {
+            Connection dao = conec.getInstance().sqlConnection;
             Statement stmt = dao.createStatement();
-            rs = stmt.executeQuery(query);
-            return pegaDados(rs);
+            rs = stmt.executeQuery(sql);
+            Usuario usuario = pegaDados(rs);
+            dao.close();
+            return usuario;
         } catch (SQLException e) {
             e.printStackTrace();
         }

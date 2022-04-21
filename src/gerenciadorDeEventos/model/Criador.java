@@ -28,6 +28,16 @@ public class Criador {
     public Criador(){
         
     }
+    
+    public Criador(String nome, String cpf, String sexo, String endereco, String email, String senha, String telefone){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.sexo = sexo;
+        this.endereco = endereco;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+    }
 
     public String getNome() {
         return nome;

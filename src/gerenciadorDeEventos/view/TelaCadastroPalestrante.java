@@ -5,6 +5,9 @@
  */
 package gerenciadorDeEventos.view;
 
+import javax.swing.JOptionPane;
+import gerenciadorDeEventos.controller.PalestranteController;
+
 /**
  *
  * @author lucas
@@ -30,7 +33,6 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
         jTextFieldNomePalestrante = new javax.swing.JTextField();
         jButtonCancelarCadastroPalestrante = new javax.swing.JButton();
         jTextFieldEnderecoPalestrante = new javax.swing.JTextField();
-        jTextFieldCpfPalestrante = new javax.swing.JTextField();
         jTextFieldEmailPalestrante = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jComboBoxSexoPalestrante = new javax.swing.JComboBox<>();
@@ -45,9 +47,12 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButtonCadastrarPalestrante = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jTextFieldFormacaoPalestrante = new javax.swing.JTextField();
+        jTextFieldExperienciaPalestrante = new javax.swing.JTextField();
+        jFormattedTextFieldCpfPalestrante = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldTelefonePalestrante = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +78,11 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
         jLabel6.setText("Selecione o sexo: ");
 
         jComboBoxSexoPalestrante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jComboBoxSexoPalestrante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSexoPalestranteActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Entre com a senha: ");
 
@@ -101,6 +111,18 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
 
         jLabel11.setText("Experiencias:");
 
+        try {
+            jFormattedTextFieldCpfPalestrante.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldTelefonePalestrante.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,31 +133,31 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
                 .addContainerGap(180, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldEmailPalestrante, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTextFieldNomePalestrante)
-                        .addComponent(jTextFieldEnderecoPalestrante)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel7)
-                        .addComponent(jPasswordFieldSenhaPalestrante)
-                        .addComponent(jButtonCadastrarPalestrante, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldEmailPalestrante, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldNomePalestrante)
+                    .addComponent(jTextFieldEnderecoPalestrante)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7)
+                    .addComponent(jPasswordFieldSenhaPalestrante)
+                    .addComponent(jButtonCadastrarPalestrante, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jTextFieldFormacaoPalestrante))
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPasswordFieldConfirmarSenhaPalestrante, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                        .addComponent(jButtonCancelarCadastroPalestrante)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel8)
-                        .addComponent(jTextFieldCpfPalestrante, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                        .addComponent(jComboBoxSexoPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9)
-                        .addComponent(jTextField1)))
+                    .addComponent(jPasswordFieldConfirmarSenhaPalestrante, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(jButtonCancelarCadastroPalestrante)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBoxSexoPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextFieldExperienciaPalestrante)
+                    .addComponent(jFormattedTextFieldCpfPalestrante)
+                    .addComponent(jFormattedTextFieldTelefonePalestrante))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,7 +172,7 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomePalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCpfPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldCpfPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -166,20 +188,24 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmailPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldTelefonePalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldFormacaoPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldExperienciaPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordFieldSenhaPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordFieldConfirmarSenhaPalestrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrarPalestrante)
                     .addComponent(jButtonCancelarCadastroPalestrante))
@@ -204,23 +230,38 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEnderecoPalestranteActionPerformed
 
     private void jButtonCadastrarPalestranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarPalestranteActionPerformed
-        String nomeUsuario = jTextFieldNomePalestrante.getText();
+        String nome = jTextFieldNomePalestrante.getText();
         String endereco = jTextFieldEnderecoPalestrante.getText();
-        String cpf = jTextFieldCpfPalestrante.getText();
+        String cpf = jFormattedTextFieldCpfPalestrante.getText();
+        String telefone = jFormattedTextFieldTelefonePalestrante.getText();
         String senha = new String(jPasswordFieldSenhaPalestrante.getPassword());
         String senhaReal = new String(jPasswordFieldConfirmarSenhaPalestrante.getPassword());
-        String sexo = jComboBoxSexoPalestrante.toString();
+        String sexo = jComboBoxSexoPalestrante.getSelectedItem().toString();
         String email = jTextFieldEmailPalestrante.getText();
+        String experiencia = jTextFieldExperienciaPalestrante.getText();
+        String formacao = jTextFieldFormacaoPalestrante.getText();
 
         if(senha.equals(senhaReal)){
-            ControladorUsuario controlador = new ControladorUsuario();
-            controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
+            PalestranteController controller = new PalestranteController();
+            int cadastrado = controller.CadastrarPalestrante(nome, endereco, cpf, senha, email, sexo, experiencia, formacao, telefone);
+            if(cadastrado == 1){
+                JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
+                TelaPrincipal principal = new TelaPrincipal();
+                principal.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");
+            }
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
             System.out.println("tela de erro de senha");
         }
 
     }//GEN-LAST:event_jButtonCadastrarPalestranteActionPerformed
+
+    private void jComboBoxSexoPalestranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexoPalestranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxSexoPalestranteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +302,8 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarPalestrante;
     private javax.swing.JButton jButtonCancelarCadastroPalestrante;
     private javax.swing.JComboBox<String> jComboBoxSexoPalestrante;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCpfPalestrante;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefonePalestrante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -274,10 +317,10 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordFieldConfirmarSenhaPalestrante;
     private javax.swing.JPasswordField jPasswordFieldSenhaPalestrante;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldCpfPalestrante;
     private javax.swing.JTextField jTextFieldEmailPalestrante;
     private javax.swing.JTextField jTextFieldEnderecoPalestrante;
+    private javax.swing.JTextField jTextFieldExperienciaPalestrante;
+    private javax.swing.JTextField jTextFieldFormacaoPalestrante;
     private javax.swing.JTextField jTextFieldNomePalestrante;
     // End of variables declaration//GEN-END:variables
 }

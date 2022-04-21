@@ -5,6 +5,9 @@
  */
 package gerenciadorDeEventos.view;
 
+import gerenciadorDeEventos.controller.CriadorController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lucas
@@ -32,7 +35,6 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
         jTextFieldNomeCriador = new javax.swing.JTextField();
         jButtonCancelarCadastroCriador = new javax.swing.JButton();
         jTextFieldEnderecoCriador = new javax.swing.JTextField();
-        jTextFieldCpfCriador = new javax.swing.JTextField();
         jTextFieldEmailCriador = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jComboBoxSexoCriador = new javax.swing.JComboBox<>();
@@ -46,8 +48,9 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
         jPasswordFieldConfirmarSenhaCriador = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jButtonCadastrarCriador = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jTextFieldCnpjCriador = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jFormattedTextFieldTelfoneCriados = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldCpfCriador = new javax.swing.JFormattedTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -83,7 +86,7 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
 
         jLabel8.setText("Confirme a senha: ");
 
-        jLabel1.setText("Tela de Cadastro do Criados");
+        jLabel1.setText("Tela de Cadastro do Criador");
 
         jLabel2.setText("Entre com o nome do Usuário:");
 
@@ -100,18 +103,28 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Entre com o CNPJ:");
+        jLabel10.setText("Telefone:");
 
-        jTextFieldCnpjCriador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCnpjCriadorActionPerformed(evt);
-            }
-        });
+        try {
+            jFormattedTextFieldTelfoneCriados.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldCpfCriador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(jLabel1)
+                .addContainerGap(237, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,22 +138,23 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
                         .addComponent(jPasswordFieldSenhaCriador)
                         .addComponent(jButtonCadastrarCriador, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel5))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordFieldConfirmarSenhaCriador, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(jButtonCancelarCadastroCriador)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextFieldCpfCriador, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(jComboBoxSexoCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextFieldCnpjCriador))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8)
+                            .addComponent(jComboBoxSexoCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextFieldTelfoneCriados, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                            .addComponent(jLabel10)
+                            .addComponent(jFormattedTextFieldCpfCriador)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonCancelarCadastroCriador)
+                            .addComponent(jPasswordFieldConfirmarSenhaCriador, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
-                .addComponent(jLabel1)
-                .addContainerGap(236, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,15 +168,15 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomeCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCpfCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldCpfCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEnderecoCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCnpjCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldTelfoneCriados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -171,7 +185,7 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmailCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxSexoCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
@@ -179,11 +193,11 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordFieldSenhaCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordFieldConfirmarSenhaCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCadastrarCriador)
-                    .addComponent(jButtonCancelarCadastroCriador))
-                .addContainerGap())
+                    .addComponent(jButtonCancelarCadastroCriador)
+                    .addComponent(jButtonCadastrarCriador))
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -206,25 +220,30 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
     private void jButtonCadastrarCriadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCriadorActionPerformed
         String nomeUsuario = jTextFieldNomeCriador.getText();
         String endereco = jTextFieldEnderecoCriador.getText();
-        int cpf = jTextFieldCpfCriador.getText();
+        String cpf = jFormattedTextFieldCpfCriador.getText();
         String senha = new String(jPasswordFieldSenhaCriador.getPassword());
         String senhaReal = new String(jPasswordFieldConfirmarSenhaCriador.getPassword());
-        String sexo = jComboBoxSexoCriador.toString();
+        String sexo = jComboBoxSexoCriador.getSelectedItem().toString();
         String email = jTextFieldEmailCriador.getText();
+        String telefone = jFormattedTextFieldTelfoneCriados.getText();
 
         if(senha.equals(senhaReal)){
-            ControladorUsuario controlador = new ControladorUsuario();
-            controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
+            CriadorController controlador = new CriadorController();
+            int cadastrado = controlador.CadastrarCriador(nomeUsuario, endereco, cpf, senha, email, sexo, telefone);
+            if(cadastrado == 1){
+                JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
+                TelaPrincipal principal = new TelaPrincipal();
+                principal.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");
+            }
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
             System.out.println("tela de erro de senha");
         }
 
     }//GEN-LAST:event_jButtonCadastrarCriadorActionPerformed
-
-    private void jTextFieldCnpjCriadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCnpjCriadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCnpjCriadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,7 +285,10 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarCriador;
     private javax.swing.JButton jButtonCancelarCadastroCriador;
     private javax.swing.JComboBox<String> jComboBoxSexoCriador;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCpfCriador;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelfoneCriados;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -274,13 +296,10 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordFieldConfirmarSenhaCriador;
     private javax.swing.JPasswordField jPasswordFieldSenhaCriador;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldCnpjCriador;
-    private javax.swing.JTextField jTextFieldCpfCriador;
     private javax.swing.JTextField jTextFieldEmailCriador;
     private javax.swing.JTextField jTextFieldEnderecoCriador;
     private javax.swing.JTextField jTextFieldNomeCriador;

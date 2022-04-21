@@ -27,7 +27,7 @@ public class UsuarioController {
         usuario.setEmail(email);
         usuario.setSexo(sexo);
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuarioResult = usuarioDAO.readUsuario(usuario.getCpf());
+        Usuario usuarioResult = usuarioDAO.readUsuario(cpf);
 
         
         if(usuarioResult == null){
