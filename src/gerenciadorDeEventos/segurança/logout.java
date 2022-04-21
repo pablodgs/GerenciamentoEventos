@@ -10,5 +10,5 @@ package gerenciadorDeEventos.segurança;
  * @author lucas
  */
 public class logout {
-    public static void logOut(JFrame context, )
+//    public static void logOut(JFrame context, )
 }

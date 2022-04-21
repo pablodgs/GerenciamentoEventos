@@ -5,9 +5,9 @@
 package gerenciadorDeEventos.dal;
 
 
-import static gerenciadorDeEventos.dal.ModuloConexao.conexao;
 import java.sql.Connection;
 import gerenciadorDeEventos.model.Usuario;
+import static gerenciadorDeEventos.model.gerenciadorDeEventos.conexao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -61,7 +61,7 @@ public class UsuarioDAO {
         try{
             Statement stmt = conexao.createStatement();
             return stmt.executeUpdate(query);
-        }catch(Exception e){
+        }catch(SQLException e){
             e.printStackTrace();
         }
         return 0;
@@ -73,8 +73,8 @@ public class UsuarioDAO {
             Statement stmt = conexao.createStatement();
             stmt.executeUpdate(query);
             return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return false;
     }

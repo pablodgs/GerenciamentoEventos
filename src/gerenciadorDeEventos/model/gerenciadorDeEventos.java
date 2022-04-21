@@ -14,10 +14,6 @@ import gerenciadorDeEventos.controller.UsuarioController;
 import gerenciadorDeEventos.dal.ModuloConexao;
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.view.TelaPrincipal;
-//import java.sql.SQLException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-
 
 /**
  *
