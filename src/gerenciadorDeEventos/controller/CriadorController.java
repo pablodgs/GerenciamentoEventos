@@ -7,6 +7,7 @@ package gerenciadorDeEventos.controller;
 
 import gerenciadorDeEventos.dal.CriadorDAO;
 import gerenciadorDeEventos.model.Criador;
+import gerenciadorDeEventos.segurança.LoginSession;
 
 /**
  *
@@ -14,13 +15,7 @@ import gerenciadorDeEventos.model.Criador;
  */
 public class CriadorController {
     public int CadastrarCriador(String nomeCriador, String endereco, String cpf, String senha, String email, String sexo, String telefone){
-        Criador criador = new Criador();
-        criador.setNome(nomeCriador);
-        criador.setEndereco(endereco);
-        criador.setCpf(cpf);
-        criador.setSenha(senha);
-        criador.setEmail(email);
-        criador.setSexo(sexo);
+        Criador criador = new Criador(nomeCriador, cpf, sexo, endereco, email, senha, telefone);
         CriadorDAO criadorDAO = new CriadorDAO();
         Criador criadorResult = criadorDAO.readCriador(cpf);
         
@@ -28,6 +23,15 @@ public class CriadorController {
             criadorDAO.cadastrar(criador);
             return 1;
         }
+        return 0;
+    }
+    
+    public int AtualizarCriador(String nome, String endereco, String senha, String email, String sexo, String telefone){
+        Criador criador = new Criador(nome, LoginSession.cpf, sexo, endereco, email, senha, telefone);
+        
+        CriadorDAO criadorDAO = new CriadorDAO();
+        criadorDAO.atualizar(criador);
+        
         return 0;
     }
     

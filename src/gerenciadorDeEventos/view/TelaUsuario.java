@@ -5,7 +5,9 @@
  */
 package gerenciadorDeEventos.view;
 
+import static gerenciadorDeEventos.model.gerenciadorDeEventos.usuarioController;
 import gerenciadorDeEventos.segurança.LoginSession;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +20,7 @@ public class TelaUsuario extends javax.swing.JFrame {
      */
     public TelaUsuario() {
         initComponents();
-        jTextField1.setText(LoginSession.nome);
+        //jTextField1.setText(LoginSession.nome);;
     }
 
     /**
@@ -35,7 +37,6 @@ public class TelaUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtNome = new javax.swing.JTextField();
         saveBtn = new javax.swing.JButton();
-        txtCpf = new javax.swing.JTextField();
         cancelBtn = new javax.swing.JButton();
         labelCpf = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -71,9 +72,6 @@ public class TelaUsuario extends javax.swing.JFrame {
                 saveBtnActionPerformed(evt);
             }
         });
-
-        txtCpf.setEditable(false);
-        txtCpf.setText(cpfTxt.toString());
 
         cancelBtn.setText("Cancelar");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -131,8 +129,7 @@ public class TelaUsuario extends javax.swing.JFrame {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(labelCpf)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(274, 274, 274))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(labelNome)
                                 .addGap(18, 18, 18)
@@ -157,9 +154,7 @@ public class TelaUsuario extends javax.swing.JFrame {
                     .addComponent(labelNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCpf)
-                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labelCpf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSexo)
@@ -176,7 +171,7 @@ public class TelaUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -227,15 +222,15 @@ public class TelaUsuario extends javax.swing.JFrame {
         boolean deleted;
         input = JOptionPane.showConfirmDialog(rootPane, "Deseja deletar sua conta?");
         switch(input){
-            case 0 -> {
+            case 0: {
                 System.out.println("Yes");
-                deleted = usuarioController.deleteUsuario(txtCpf.getText());
-                if(deleted){
-                    JOptionPane.showMessageDialog(rootPane, "SUCESSO: Conta DELETADA.");
-                }
+                //deleted = usuarioController.deleteUsuario(txtCpf.getText());
+                //if(deleted){
+                //    JOptionPane.showMessageDialog(rootPane, "SUCESSO: Conta DELETADA.");
+                //}
             }
-            case 1 -> System.out.println("No");
-            case 2 -> System.out.println("Cancel");
+            case 1: System.out.println("No");
+            case 2: System.out.println("Cancel");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -289,7 +284,6 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelSexo;
     private javax.swing.JButton saveBtn;
-    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;

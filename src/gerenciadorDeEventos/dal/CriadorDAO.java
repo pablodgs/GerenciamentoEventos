@@ -60,6 +60,37 @@ public class CriadorDAO {
             e.printStackTrace();
         }
     }
+    
+    public void atualizar(Criador criador){
+        ModuloConexao conec = new ModuloConexao();
+        Connection dao = conec.getInstance().sqlConnection;
+        String query = "UPDATE criador set nome = '" + criador.getNome() + "', senha = '" + criador.getSenha() + "', endereco = '" + criador.getEndereco() + "', email = '" + criador.getEmail() + "', sexo = '" + criador.getSexo() + "', telefone = '" + criador.getTelefone() + "' where cpf = '" + criador.getCpf() + "';";
+        try{
+            Statement stmt = dao.createStatement();
+            stmt.executeUpdate(query);
+            dao.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public Criador pegarLogado(String email, String senha){
+        String sql = "select * from criador where email = '" + email + "' and senha = '" + senha + "';";
+        ResultSet rs = null;
+        ModuloConexao conec = new ModuloConexao();
+        try{
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            Criador resultado = pegaDados(rs);
+            if(resultado != null){
+                return resultado;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
         
     
 }

@@ -155,11 +155,16 @@ public class TelaLogin extends javax.swing.JFrame {
         
         Usuario usuario;
         ControladorLogin controlador = new ControladorLogin();
-        usuario = controlador.logar(email, senha, tipo);
-        if(usuario == null){
+        int logado = controlador.logar(email, senha, tipo);
+        if(logado == 0){
             JOptionPane.showMessageDialog(this, "Login Incorreto!!");
-        }else{
+        }else if(logado == 1){
             TelaUsuario tela = new TelaUsuario();
+            tela.setVisible(true);
+            tela.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }else if(logado == 2){
+            TelaCriador tela = new TelaCriador();
             tela.setVisible(true);
             tela.setLocationRelativeTo(null);
             this.setVisible(false);

@@ -5,6 +5,7 @@
  */
 package gerenciadorDeEventos.controller;
 
+import gerenciadorDeEventos.model.Criador;
 import gerenciadorDeEventos.model.Usuario;
 import gerenciadorDeEventos.segurança.Autenticacao;
 import gerenciadorDeEventos.segurança.LoginSession;
@@ -14,7 +15,7 @@ import gerenciadorDeEventos.segurança.LoginSession;
  * @author lucas
  */
 public class ControladorLogin {
-    public Usuario logar(String email, String senha, String tipo){
+    public int logar(String email, String senha, String tipo){
         Autenticacao autenticacao = new Autenticacao();
         if(tipo.compareTo("Usuário") == 0){
             Usuario usuario = autenticacao.loginUsuario(email, senha);
@@ -22,11 +23,21 @@ public class ControladorLogin {
                 LoginSession.cpf = usuario.getCpf();
                 LoginSession.nome = usuario.getNome();
                 LoginSession.estalogado = true;
-                return usuario;
+                return 1;
             }else{
-                return null;
+                return 0;
+            }
+        }else if(tipo.compareTo("Criador") == 0){
+            Criador criador = autenticacao.loginCriador(email, senha);
+            if(criador != null){
+                LoginSession.cpf = criador.getCpf();
+                LoginSession.nome = criador.getNome();
+                LoginSession.estalogado = true;
+                return 2;
+            }else{
+                return 0;
             }
         }
-        return null;
+        return 0;
     }
 }
