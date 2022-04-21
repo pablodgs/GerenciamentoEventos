@@ -1,11 +1,13 @@
 package gerenciadorDeEventos.model;
 
+import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Usuario {
     @Id
+    @NotNull
     private String cpf;
     private String nome;
     private String sexo;

@@ -7,15 +7,12 @@ package gerenciadorDeEventos.dal;
 
 import static gerenciadorDeEventos.dal.ModuloConexao.conexao;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import gerenciadorDeEventos.model.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 /**
  *
  * @author pablo
@@ -52,7 +49,7 @@ public class UsuarioDAO {
         }
         return null;
     }
-    
+
     public int updateUsuario(Usuario usuario){
         String query = "UPDATE usuario SET "
                 + "nome='" + usuario.getNome() + "', "
@@ -61,7 +58,6 @@ public class UsuarioDAO {
                 + "email='" + usuario.getEmail() + "', "
                 + "senha='" + usuario.getSenha() + "' "
                 + "WHERE cpf='" + usuario.getCpf() + "'";
-//        System.out.println(query);
         try{
             Statement stmt = conexao.createStatement();
             return stmt.executeUpdate(query);
@@ -70,7 +66,7 @@ public class UsuarioDAO {
         }
         return 0;
     }
-    
+
     public boolean deleteUsuario(Usuario usuario){
         String query = "DELETE FROM usuario WHERE cpf='" + usuario.getCpf() + "'";
         try {
@@ -82,7 +78,7 @@ public class UsuarioDAO {
         }
         return false;
     }
-   
+
     private List<Usuario> listaUsuario(ResultSet rs){
         List<Usuario> usuarios = new ArrayList<>();
         if(rs == null){
@@ -98,8 +94,8 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
-    
-     public ResultSet listaPorSql(String sql){
+
+    public ResultSet listaPorSql(String sql){
         ModuloConexao conec = new ModuloConexao();
         try{
             Connection dao = conec.getInstance().sqlConnection;
@@ -109,13 +105,13 @@ public class UsuarioDAO {
             return null;
         }
     }
-    
+
     public List<Usuario> BuscarTodos(){
         String sql = "Select * from usuario;";
         ResultSet rs = this.listaPorSql(sql);
         return listaUsuario(rs);
     }
-    
+
     public void cadastrar(Usuario usuario){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
@@ -128,8 +124,7 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
-    
-    
+
     public Usuario pegarLogado(String email, String senha){
         String sql = "select * from usuario where email = '" + email + "' and senha = '" + senha + "';";
         ResultSet rs = null;
@@ -138,14 +133,13 @@ public class UsuarioDAO {
             Connection dao = conec.getInstance().sqlConnection;
             Statement stmt = dao.createStatement();
             rs = stmt.executeQuery(sql);
+            Usuario resultado = pegaDados(rs);
+            if(resultado != null){
+                return resultado;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }
-        List<Usuario> logado = listaUsuario(rs);
-        if(logado.size() > 0){
-            return logado.get(0);
-        }
-        
-        return  null;
+        return null;
     }
 }

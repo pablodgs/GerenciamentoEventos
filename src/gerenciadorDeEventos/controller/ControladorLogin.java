@@ -5,11 +5,9 @@
  */
 package gerenciadorDeEventos.controller;
 
-import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.model.Usuario;
 import gerenciadorDeEventos.segurança.Autenticacao;
 import gerenciadorDeEventos.segurança.LoginSession;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +16,6 @@ import javax.swing.JOptionPane;
 public class ControladorLogin {
     public Usuario logar(String email, String senha, String tipo){
         Autenticacao autenticacao = new Autenticacao();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
         if(tipo.compareTo("Usuário") == 0){
             Usuario usuario = autenticacao.loginUsuario(email, senha);
             if(usuario != null){ 

@@ -34,14 +34,14 @@
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPasswordFieldSenhaUsuario" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastrarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cadastrarBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPasswordFieldConfirmarSenhaUsuario" alignment="0" pref="201" max="32767" attributes="0"/>
-                  <Component id="jButtonCancelarCadastroUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -98,8 +98,8 @@
               </Group>
               <EmptySpace pref="66" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCadastrarUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCancelarCadastroUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadastrarBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -179,20 +179,20 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordFieldConfirmarSenhaUsuario">
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCadastrarUsuario">
+    <Component class="javax.swing.JButton" name="cadastrarBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarUsuarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCancelarCadastroUsuario">
+    <Component class="javax.swing.JButton" name="cancelBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarCadastroUsuarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jTextFieldCpfUsuario">

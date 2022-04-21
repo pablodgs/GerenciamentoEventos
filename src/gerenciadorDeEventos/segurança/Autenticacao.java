@@ -5,7 +5,6 @@
  */
 package gerenciadorDeEventos.segurança;
 
-import com.mysql.cj.Session;
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.model.Usuario;
 
@@ -15,7 +14,6 @@ import gerenciadorDeEventos.model.Usuario;
  */
 public class Autenticacao {
     UsuarioDAO usuarioDao = new UsuarioDAO();
-    
 
     public Usuario loginUsuario(String email, String senha){
         Usuario usuario = usuarioDao.pegarLogado(email, senha);

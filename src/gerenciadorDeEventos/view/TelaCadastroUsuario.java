@@ -44,8 +44,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jPasswordFieldSenhaUsuario = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jPasswordFieldConfirmarSenhaUsuario = new javax.swing.JPasswordField();
-        jButtonCadastrarUsuario = new javax.swing.JButton();
-        jButtonCancelarCadastroUsuario = new javax.swing.JButton();
+        cadastrarBtn = new javax.swing.JButton();
+        cancelBtn = new javax.swing.JButton();
         jTextFieldCpfUsuario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,17 +80,17 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jLabel8.setText("Confirme a senha: ");
 
-        jButtonCadastrarUsuario.setText("Cadastrar");
-        jButtonCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarBtn.setText("Cadastrar");
+        cadastrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastrarUsuarioActionPerformed(evt);
+                cadastrarBtnActionPerformed(evt);
             }
         });
 
-        jButtonCancelarCadastroUsuario.setText("Cancelar");
-        jButtonCancelarCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+        cancelBtn.setText("Cancelar");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelarCadastroUsuarioActionPerformed(evt);
+                cancelBtnActionPerformed(evt);
             }
         });
 
@@ -120,12 +120,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jLabel7)
                         .addComponent(jPasswordFieldSenhaUsuario)
-                        .addComponent(jButtonCadastrarUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(cadastrarBtn, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel5))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPasswordFieldConfirmarSenhaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(jButtonCancelarCadastroUsuario)
+                    .addComponent(cancelBtn)
                     .addComponent(jLabel6)
                     .addComponent(jLabel3)
                     .addComponent(jLabel8)
@@ -172,8 +172,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(jPasswordFieldConfirmarSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCadastrarUsuario)
-                    .addComponent(jButtonCancelarCadastroUsuario))
+                    .addComponent(cadastrarBtn)
+                    .addComponent(cancelBtn))
                 .addContainerGap())
         );
 
@@ -190,7 +190,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEnderecoUsuarioActionPerformed
 
-    private void jButtonCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarUsuarioActionPerformed
+    private void cadastrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBtnActionPerformed
         String nomeUsuario = jTextFieldNomeUsuario.getText();
         String endereco = jTextFieldEnderecoUsuario.getText();
         String cpf = jTextFieldCpfUsuario.getText();
@@ -200,30 +200,34 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         String email = jTextFieldEmailUsuario.getText();
         System.out.println(cpf);
         
-        if(senha.equals(senhaReal)){
-            UsuarioController controlador = new UsuarioController();
-            int cadastrado = controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
-            if(cadastrado == 1){
-                JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
-                TelaPrincipal principal = new TelaPrincipal();
-                principal.setVisible(true);
-                principal.setLocationRelativeTo(null);
-                this.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");
-            }
+        if(cpf.compareTo("   .   .   -  ") == 0){
+            JOptionPane.showMessageDialog(this, "Cpf inválido!");
         }else{
-            JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
-            System.out.println("tela de erro de senha");
+            if(senha.equals(senhaReal)){
+                UsuarioController controlador = new UsuarioController();
+                int cadastrado = controlador.CadastrarUsuario(nomeUsuario, endereco, cpf, senha, email, sexo);
+                if(cadastrado == 1){
+                    JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
+                    TelaPrincipal principal = new TelaPrincipal();
+                    principal.setVisible(true);
+                    principal.setLocationRelativeTo(null);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
+                System.out.println("tela de erro de senha");
+            }
         }
-    }//GEN-LAST:event_jButtonCadastrarUsuarioActionPerformed
+    }//GEN-LAST:event_cadastrarBtnActionPerformed
 
-    private void jButtonCancelarCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarCadastroUsuarioActionPerformed
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         TelaPrincipal principal = new TelaPrincipal();
         principal.setVisible(true);
         principal.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonCancelarCadastroUsuarioActionPerformed
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void jTextFieldCpfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfUsuarioActionPerformed
         // TODO add your handling code here:
@@ -266,8 +270,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCadastrarUsuario;
-    private javax.swing.JButton jButtonCancelarCadastroUsuario;
+    private javax.swing.JButton cadastrarBtn;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JComboBox<String> jComboBoxSexoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
