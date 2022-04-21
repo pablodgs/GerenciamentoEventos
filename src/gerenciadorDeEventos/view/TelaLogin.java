@@ -172,6 +172,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         TelaPrincipal principal = new TelaPrincipal();
         principal.setVisible(true);
+        principal.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 

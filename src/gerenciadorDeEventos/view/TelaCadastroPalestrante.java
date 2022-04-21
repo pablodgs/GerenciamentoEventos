@@ -222,6 +222,7 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
     private void jButtonCancelarCadastroPalestranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarCadastroPalestranteActionPerformed
         TelaPrincipal principal = new TelaPrincipal();
         principal.setVisible(true);
+        principal.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarCadastroPalestranteActionPerformed
 
@@ -248,6 +249,7 @@ public class TelaCadastroPalestrante extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
+                principal.setLocationRelativeTo(null);
                 this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");

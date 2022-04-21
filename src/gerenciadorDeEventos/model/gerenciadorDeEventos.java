@@ -34,6 +34,7 @@ public class gerenciadorDeEventos {
         EntityManager gerente = fabrica.createEntityManager();
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
 //        try {
 //            conexao.close();
 //            System.out.println("Conexao com BD FECHADA!");
