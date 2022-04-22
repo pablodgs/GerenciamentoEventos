@@ -14,7 +14,8 @@ import gerenciadorDeEventos.segurança.LoginSession;
  * @author lucas
  */
 public class CriadorController {
-    public int CadastrarCriador(String nomeCriador, String endereco, String cpf, String senha, String email, String sexo, String telefone){
+    
+    public int cadastrarCriador(String nomeCriador, String endereco, String cpf, String senha, String email, String sexo, String telefone){
         Criador criador = new Criador(nomeCriador, cpf, sexo, endereco, email, senha, telefone);
         CriadorDAO criadorDAO = new CriadorDAO();
         Criador criadorResult = criadorDAO.readCriador(cpf);
@@ -26,13 +27,16 @@ public class CriadorController {
         return 0;
     }
     
-    public int AtualizarCriador(String nome, String endereco, String senha, String email, String sexo, String telefone){
+    public void atualizarCriador(String nome, String endereco, String senha, String email, String sexo, String telefone){
         Criador criador = new Criador(nome, LoginSession.cpf, sexo, endereco, email, senha, telefone);
         
         CriadorDAO criadorDAO = new CriadorDAO();
         criadorDAO.atualizar(criador);
-        
-        return 0;
+
     }
     
+    public void deletarCriador(){
+        CriadorDAO criadorDAO = new CriadorDAO();
+        criadorDAO.deletar(LoginSession.cpf);
+    }
 }

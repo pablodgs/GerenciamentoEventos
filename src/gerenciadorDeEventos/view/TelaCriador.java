@@ -6,6 +6,8 @@
 package gerenciadorDeEventos.view;
 
 import gerenciadorDeEventos.controller.CriadorController;
+import gerenciadorDeEventos.segurança.LoginSession;
+import java.awt.Button;
 import javax.swing.JOptionPane;
 
 /**
@@ -246,18 +248,30 @@ public class TelaCriador extends javax.swing.JFrame {
         
         if(senha.equals(senhaReal)){
             CriadorController controlador = new CriadorController();
-            controlador.AtualizarCriador(nome, endereco, senha, email, sexo, telefone);
+            controlador.atualizarCriador(nome, endereco, senha, email, sexo, telefone);
             JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
-            TelaPrincipal principal = new TelaPrincipal();
-            principal.setVisible(true);
-            principal.setLocationRelativeTo(null);
-            this.setVisible(false);
+            jTabbedPane1.setSelectedIndex(0);
+            
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você realmente deseja deletar sua conta?", "Warning", dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            CriadorController controler = new CriadorController();
+            controler.deletarCriador();
+            LoginSession.nome = null;
+            LoginSession.cpf = null;
+            LoginSession.estalogado = false;
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+            tela.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
+        
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 

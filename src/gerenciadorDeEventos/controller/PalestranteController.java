@@ -9,6 +9,7 @@ import gerenciadorDeEventos.dal.PalestranteDAO;
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.model.Palestrante;
 import gerenciadorDeEventos.model.Usuario;
+import gerenciadorDeEventos.segurança.LoginSession;
 
 /**
  *
@@ -16,16 +17,7 @@ import gerenciadorDeEventos.model.Usuario;
  */
 public class PalestranteController {
     public int CadastrarPalestrante(String nome, String endereco, String cpf, String senha, String email, String sexo, String experiencia, String formacao, String telefone){
-    Palestrante palestrante = new Palestrante();
-    palestrante.setNome(nome);
-    palestrante.setEndereco(endereco); 
-    palestrante.setCpf(cpf);
-    palestrante.setSenha(senha);
-    palestrante.setEmail(email);
-    palestrante.setSexo(sexo); 
-    palestrante.setExperiencias(experiencia);
-    palestrante.setFormacao(formacao);
-    palestrante.setTelefone(telefone);
+    Palestrante palestrante = new Palestrante(nome, cpf, sexo, endereco, email, senha, experiencia, formacao, telefone);
     PalestranteDAO palestranteDAO = new PalestranteDAO();
     Palestrante palestranteResult = palestranteDAO.readPalestrante(cpf);
     
@@ -34,5 +26,17 @@ public class PalestranteController {
             return 1;
         }
         return 0;
+    }
+    
+    public void atualizarPalestrante(String nome, String endereco, String senha, String email, String sexo, String telefone, String formacao, String experiencia){
+        Palestrante palestrante = new Palestrante(nome, LoginSession.cpf, sexo, endereco, email, senha, experiencia, formacao, telefone);
+        
+        PalestranteDAO palestranteDAO = new PalestranteDAO();
+        palestranteDAO.atualizar(palestrante);
+    }
+    
+    public void deletarPalestrante(){
+        PalestranteDAO criadorDAO = new PalestranteDAO();
+        criadorDAO.deletar(LoginSession.cpf);
     }
 }

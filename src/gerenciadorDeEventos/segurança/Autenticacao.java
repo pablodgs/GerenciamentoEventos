@@ -6,8 +6,10 @@
 package gerenciadorDeEventos.segurança;
 
 import gerenciadorDeEventos.dal.CriadorDAO;
+import gerenciadorDeEventos.dal.PalestranteDAO;
 import gerenciadorDeEventos.dal.UsuarioDAO;
 import gerenciadorDeEventos.model.Criador;
+import gerenciadorDeEventos.model.Palestrante;
 import gerenciadorDeEventos.model.Usuario;
 
 /**
@@ -17,6 +19,7 @@ import gerenciadorDeEventos.model.Usuario;
 public class Autenticacao {
     UsuarioDAO usuarioDao = new UsuarioDAO();
     CriadorDAO criadorDao = new CriadorDAO();
+    PalestranteDAO palestranteDao = new PalestranteDAO();
 
     public Usuario loginUsuario(String email, String senha){
         Usuario usuario = usuarioDao.pegarLogado(email, senha);
@@ -30,6 +33,14 @@ public class Autenticacao {
         Criador criador = criadorDao.pegarLogado(email, senha);
         if(criador != null){
             return criador;
+        }
+        return null;
+    }
+    
+    public Palestrante loginPalestrante(String email, String senha){
+        Palestrante palestrante = palestranteDao.pegarLogado(email, senha);
+        if(palestrante != null){
+            return palestrante;
         }
         return null;
     }

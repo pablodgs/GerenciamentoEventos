@@ -63,4 +63,56 @@ public class PalestranteDAO {
             e.printStackTrace();
         }
     }
+    
+    public Palestrante pegarLogado(String email, String senha){
+        String sql = "select * from palestrante where email = '" + email + "' and senha = '" + senha + "';";
+        ResultSet rs = null;
+        ModuloConexao conec = new ModuloConexao();
+        try{
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            Palestrante resultado = pegaDados(rs);
+            if(resultado != null){
+                return resultado;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public void deletar(String cpf){
+        ModuloConexao conec = new ModuloConexao();
+        Connection dao = conec.getInstance().sqlConnection;
+        String sql = "Delete from palestrante where cpf = '" + cpf + "';";
+        try{
+            Statement stmt = dao.createStatement();
+            stmt.execute(sql);
+            dao.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void atualizar(Palestrante palestrante){
+        ModuloConexao conec = new ModuloConexao();
+        Connection dao = conec.getInstance().sqlConnection;
+        String query = "UPDATE palestrante set nome = '" + palestrante.getNome() + 
+                       "', senha = '" + palestrante.getSenha() + 
+                       "', endereco = '" + palestrante.getEndereco() + 
+                       "', email = '" + palestrante.getEmail() + 
+                       "', sexo = '" + palestrante.getSexo() + 
+                       "', telefone = '" + palestrante.getTelefone() + 
+                       "', formacao = '" + palestrante.getFormacao() +
+                       "', experiencias = '" + palestrante.getExperiencias() +
+                       "' where cpf = '" + palestrante.getCpf() +  "';";
+        try{
+            Statement stmt = dao.createStatement();
+            stmt.executeUpdate(query);
+            dao.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

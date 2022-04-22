@@ -91,6 +91,19 @@ public class CriadorDAO {
         }
         return null;
     }
+    
+    public void deletar(String cpf){
+        ModuloConexao conec = new ModuloConexao();
+        Connection dao = conec.getInstance().sqlConnection;
+        String sql = "Delete from criador where cpf = '" + cpf + "';";
+        try{
+            Statement stmt = dao.createStatement();
+            stmt.execute(sql);
+            dao.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
         
     
 }

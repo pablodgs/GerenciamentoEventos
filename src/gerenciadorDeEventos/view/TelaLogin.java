@@ -168,6 +168,11 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.setVisible(true);
             tela.setLocationRelativeTo(null);
             this.setVisible(false);
+        }else if(logado == 3){
+            TelaPalestrante tela = new TelaPalestrante();
+            tela.setVisible(true);
+            tela.setLocationRelativeTo(null);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_logarBtnActionPerformed
 

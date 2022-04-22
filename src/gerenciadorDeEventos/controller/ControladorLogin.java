@@ -6,6 +6,7 @@
 package gerenciadorDeEventos.controller;
 
 import gerenciadorDeEventos.model.Criador;
+import gerenciadorDeEventos.model.Palestrante;
 import gerenciadorDeEventos.model.Usuario;
 import gerenciadorDeEventos.segurança.Autenticacao;
 import gerenciadorDeEventos.segurança.LoginSession;
@@ -34,6 +35,16 @@ public class ControladorLogin {
                 LoginSession.nome = criador.getNome();
                 LoginSession.estalogado = true;
                 return 2;
+            }else{
+                return 0;
+            }
+        }else if(tipo.compareTo("Palestrante") == 0){
+            Palestrante palestrante = autenticacao.loginPalestrante(email,senha);
+            if(palestrante != null){
+                LoginSession.cpf = palestrante.getCpf();
+                LoginSession.nome = palestrante.getNome();
+                LoginSession.estalogado = true;
+                return 3;
             }else{
                 return 0;
             }

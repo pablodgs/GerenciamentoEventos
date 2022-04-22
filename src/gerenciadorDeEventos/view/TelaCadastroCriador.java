@@ -230,7 +230,7 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
 
         if(senha.equals(senhaReal)){
             CriadorController controlador = new CriadorController();
-            int cadastrado = controlador.CadastrarCriador(nomeUsuario, endereco, cpf, senha, email, sexo, telefone);
+            int cadastrado = controlador.cadastrarCriador(nomeUsuario, endereco, cpf, senha, email, sexo, telefone);
             if(cadastrado == 1){
                 JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
                 TelaPrincipal principal = new TelaPrincipal();
