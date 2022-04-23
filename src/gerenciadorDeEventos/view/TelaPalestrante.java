@@ -288,9 +288,14 @@ public class TelaPalestrante extends javax.swing.JFrame {
         
         if(senha.equals(senhaReal)){
             PalestranteController controlador = new PalestranteController();
-            controlador.atualizarPalestrante(nome, endereco, senha, email, sexo, telefone, formacao, experiencia);
-            JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
-            jTabbedPane1.setSelectedIndex(0);
+            boolean update = controlador.atualizarPalestrante(nome, endereco, senha, email, sexo, telefone, formacao, experiencia);
+            if(update){
+                JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
+                jTabbedPane1.setSelectedIndex(0);
+            }else{
+                JOptionPane.showMessageDialog(this, "Erro ao atualizar!");
+            }
+            
             
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");

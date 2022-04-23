@@ -28,11 +28,15 @@ public class PalestranteController {
         return 0;
     }
     
-    public void atualizarPalestrante(String nome, String endereco, String senha, String email, String sexo, String telefone, String formacao, String experiencia){
+    public boolean atualizarPalestrante(String nome, String endereco, String senha, String email, String sexo, String telefone, String formacao, String experiencia){
         Palestrante palestrante = new Palestrante(nome, LoginSession.cpf, sexo, endereco, email, senha, experiencia, formacao, telefone);
         
         PalestranteDAO palestranteDAO = new PalestranteDAO();
-        palestranteDAO.atualizar(palestrante);
+        boolean update = palestranteDAO.atualizar(palestrante);
+        if(update){
+            return true;
+        }
+        return false;
     }
     
     public void deletarPalestrante(){

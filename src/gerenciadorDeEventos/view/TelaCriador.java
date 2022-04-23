@@ -105,6 +105,11 @@ public class TelaCriador extends javax.swing.JFrame {
         jLabel22.setText("Senha:");
 
         jComboBoxSexoCriadorAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jComboBoxSexoCriadorAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSexoCriadorAlterarActionPerformed(evt);
+            }
+        });
 
         jLabel23.setText("Confrme a senha:");
 
@@ -248,10 +253,13 @@ public class TelaCriador extends javax.swing.JFrame {
         
         if(senha.equals(senhaReal)){
             CriadorController controlador = new CriadorController();
-            controlador.atualizarCriador(nome, endereco, senha, email, sexo, telefone);
-            JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
-            jTabbedPane1.setSelectedIndex(0);
-            
+            boolean update = controlador.atualizarCriador(nome, endereco, senha, email, sexo, telefone);
+            if(update){
+                JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
+                jTabbedPane1.setSelectedIndex(0);
+            }else{
+                JOptionPane.showMessageDialog(this, "Erro ao atualizar cadastro");   
+            }
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");
         }
@@ -278,6 +286,10 @@ public class TelaCriador extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBoxSexoCriadorAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexoCriadorAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxSexoCriadorAlterarActionPerformed
 
     /**
      * @param args the command line arguments

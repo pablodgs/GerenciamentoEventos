@@ -95,7 +95,7 @@ public class PalestranteDAO {
         }
     }
     
-    public void atualizar(Palestrante palestrante){
+    public boolean atualizar(Palestrante palestrante){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
         String query = "UPDATE palestrante set nome = '" + palestrante.getNome() + 
@@ -111,8 +111,10 @@ public class PalestranteDAO {
             Statement stmt = dao.createStatement();
             stmt.executeUpdate(query);
             dao.close();
+            return true;
         }catch(Exception e){
             e.printStackTrace();
         }
+        return false;
     }
 }

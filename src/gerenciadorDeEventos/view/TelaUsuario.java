@@ -5,6 +5,7 @@
  */
 package gerenciadorDeEventos.view;
 
+import gerenciadorDeEventos.controller.UsuarioController;
 import static gerenciadorDeEventos.model.gerenciadorDeEventos.usuarioController;
 import gerenciadorDeEventos.segurança.LoginSession;
 import javax.swing.JOptionPane;
@@ -214,32 +215,32 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         boolean updated;
-        updated = usuarioController.updateUsuario(txtNome.getText(), txtCpf.getText(), txtSexo.getText(), txtEndereco.getText(), txtEmail.getText(), txtSenha.getText());
+        updated = usuarioController.updateUsuario(txtNome.getText(), LoginSession.cpf, jComboBox1.getSelectedItem().toString(), txtEndereco.getText(), txtEmail.getText(), new String(txtSenha.getPassword()));
         if(updated){
             JOptionPane.showMessageDialog(rootPane, "SUCESSO: Usuario ATUALIZADO.");
+            jTabbedPane1.setSelectedIndex(0);
         } else{
             JOptionPane.showMessageDialog(rootPane, "FALHA: Usuario NÃO atualizado.");
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        int input;
-        boolean deleted;
-        input = JOptionPane.showConfirmDialog(rootPane, "Deseja deletar sua conta?");
-        switch(input){
-            case 0: {
-                System.out.println("Yes");
-                //deleted = usuarioController.deleteUsuario(txtCpf.getText());
-                //if(deleted){
-                //    JOptionPane.showMessageDialog(rootPane, "SUCESSO: Conta DELETADA.");
-                //}
-            }
-            case 1: System.out.println("No");
-            case 2: System.out.println("Cancel");
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você realmente deseja deletar sua conta?", "Warning", dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            UsuarioController controler = new UsuarioController();
+            controler.deletarUsuario();
+            LoginSession.nome = null;
+            LoginSession.cpf = null;
+            LoginSession.estalogado = false;
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+            tela.setLocationRelativeTo(null);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 

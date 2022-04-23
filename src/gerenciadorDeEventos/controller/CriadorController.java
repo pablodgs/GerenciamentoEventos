@@ -27,11 +27,15 @@ public class CriadorController {
         return 0;
     }
     
-    public void atualizarCriador(String nome, String endereco, String senha, String email, String sexo, String telefone){
+    public boolean atualizarCriador(String nome, String endereco, String senha, String email, String sexo, String telefone){
         Criador criador = new Criador(nome, LoginSession.cpf, sexo, endereco, email, senha, telefone);
         
         CriadorDAO criadorDAO = new CriadorDAO();
-        criadorDAO.atualizar(criador);
+        boolean update = criadorDAO.atualizar(criador);
+        if(update){
+            return true;
+        }
+        return false;
 
     }
     

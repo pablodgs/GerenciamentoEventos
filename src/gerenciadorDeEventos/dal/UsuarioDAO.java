@@ -67,8 +67,8 @@ public class UsuarioDAO {
         return 0;
     }
 
-    public boolean deleteUsuario(Usuario usuario){
-        String query = "DELETE FROM usuario WHERE cpf='" + usuario.getCpf() + "'";
+    public boolean deleteUsuario(String cpf){
+        String query = "DELETE FROM usuario WHERE cpf='" + cpf  + "'";
         try {
             Statement stmt = conexao.createStatement();
             stmt.executeUpdate(query);
