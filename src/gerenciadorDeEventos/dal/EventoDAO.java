@@ -110,17 +110,6 @@ public class EventoDAO {
             String horario = rs.getString("horario");
             String cpfCriador = rs.getString("cpfCriador");
             
-            System.out.println(id);
-            System.out.println(nomeEvento);
-            System.out.println(ingressos);
-            System.out.println(data);
-            System.out.println(preco);
-            System.out.println(local);
-            System.out.println(contato);
-            System.out.println(descricao);
-            System.out.println(horario);
-            System.out.println(cpfCriador);
-            
             Criador criador = criadorDao.readCriador(cpfCriador);
             
             Evento evento = new Evento(id, nomeEvento, ingressos, data, preco, local, contato, descricao, horario, criador);
@@ -162,16 +151,13 @@ public class EventoDAO {
     
     public List<Evento> listaEventos(ResultSet rs){
         List<Evento> eventos = new ArrayList<>();
-        System.out.println("Entrou no eventoDao.listaEventos()");
         if(rs == null){
-            System.out.println("ERRO! rs == null");
             return eventos;
         }
         try{
             if(rs != null){
                 Evento evento = pegaDados(rs);
                 while(evento != null){
-                    System.out.println("LOOP!");
                     eventos.add(evento);
                     evento = pegaDados(rs);
                 }

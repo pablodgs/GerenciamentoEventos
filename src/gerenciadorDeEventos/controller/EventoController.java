@@ -35,7 +35,6 @@ public class EventoController {
     }
         
     public List<Evento> lerEventosCadastrados(){
-        System.out.println("INICIOU METODO DO CONTROLLER PARA LER EVENTOS CADASTRADOS!");
         EventoDAO eventoDao = new EventoDAO();
         ResultSet rs = eventoDao.getEventos();
         return eventoDao.listaEventos(rs);

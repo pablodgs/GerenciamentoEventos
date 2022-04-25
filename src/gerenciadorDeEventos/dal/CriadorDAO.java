@@ -42,7 +42,6 @@ public class CriadorDAO {
             Statement stmt = dao.createStatement();
             rs = stmt.executeQuery(sql);
             Criador criador = pegaDados(rs);
-            dao.close();
             return criador;
         } catch (SQLException e) {
             e.printStackTrace();
