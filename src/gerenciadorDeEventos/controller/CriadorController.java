@@ -7,7 +7,9 @@ package gerenciadorDeEventos.controller;
 
 import gerenciadorDeEventos.dal.CriadorDAO;
 import gerenciadorDeEventos.model.Criador;
+import gerenciadorDeEventos.model.Evento;
 import gerenciadorDeEventos.segurança.LoginSession;
+import java.util.Date;
 
 /**
  *
@@ -43,4 +45,6 @@ public class CriadorController {
         CriadorDAO criadorDAO = new CriadorDAO();
         criadorDAO.deletar(LoginSession.cpf);
     }
+    
+
 }

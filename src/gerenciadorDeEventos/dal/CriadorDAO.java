@@ -6,6 +6,7 @@
 package gerenciadorDeEventos.dal;
 
 import gerenciadorDeEventos.model.Criador;
+import gerenciadorDeEventos.model.Evento;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,7 +65,13 @@ public class CriadorDAO {
     public boolean atualizar(Criador criador){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
-        String query = "UPDATE criador set nome = '" + criador.getNome() + "', senha = '" + criador.getSenha() + "', endereco = '" + criador.getEndereco() + "', email = '" + criador.getEmail() + "', sexo = '" + criador.getSexo() + "', telefone = '" + criador.getTelefone() + "' where cpf = '" + criador.getCpf() + "';";
+        String query = "UPDATE criador set nome = '" + criador.getNome() +
+                                      "', senha = '" + criador.getSenha() + 
+                                      "', endereco = '" + criador.getEndereco() + 
+                                      "', email = '" + criador.getEmail() + 
+                                      "', sexo = '" + criador.getSexo() + 
+                                      "', telefone = '" + criador.getTelefone() +
+                                      "' where cpf = '" + criador.getCpf() + "';";
         try{
             Statement stmt = dao.createStatement();
             stmt.executeUpdate(query);
