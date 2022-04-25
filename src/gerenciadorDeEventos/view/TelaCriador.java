@@ -13,6 +13,7 @@ import java.awt.Button;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -105,7 +106,7 @@ public class TelaCriador extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TxtDescricao1 = new javax.swing.JTextArea();
         jLabel28 = new javax.swing.JLabel();
-        TxtNome1 = new javax.swing.JTextField();
+        ComboNomeEvento = new javax.swing.JComboBox<>();
 
         jLabel27.setText("jLabel27");
 
@@ -260,7 +261,7 @@ public class TelaCriador extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Alterar Cadastro", jPanel2);
 
-        jLabel1.setText("Criação de Eventos");
+        jLabel1.setText("Cadastrar Eventos");
 
         jLabel2.setText("Nome do Evento: ");
 
@@ -411,7 +412,7 @@ public class TelaCriador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Criar Evento", jPanel3);
+        jTabbedPane1.addTab("Cadastrar Evento", jPanel3);
 
         jLabel12.setText("Contato: ");
 
@@ -475,9 +476,9 @@ public class TelaCriador extends javax.swing.JFrame {
 
         jLabel28.setText("Nome do evento à alterar: ");
 
-        TxtNome1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNome1ActionPerformed(evt);
+        ComboNomeEvento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ComboNomeEventoFocusGained(evt);
             }
         });
 
@@ -496,20 +497,21 @@ public class TelaCriador extends javax.swing.JFrame {
                                         .addComponent(jButton5)
                                         .addGap(75, 75, 75))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(TxtNome1)
-                                        .addGap(60, 60, 60))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel17)
                                             .addComponent(jLabel28)
                                             .addComponent(jLabel14))
-                                        .addGap(120, 120, 120)))
+                                        .addGap(120, 120, 120))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(ComboNomeEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(45, 45, 45)))
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton6)
-                                    .addComponent(jLabel15)
-                                    .addComponent(TxtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel13)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel13)))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -524,7 +526,9 @@ public class TelaCriador extends javax.swing.JFrame {
                                     .addComponent(jLabel12)
                                     .addComponent(TxtData1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TxtIngressos1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtHorario1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(TxtHorario1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(TxtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLabel16)))
@@ -536,15 +540,17 @@ public class TelaCriador extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel16)
                 .addGap(36, 36, 36)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(34, 34, 34))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ComboNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -571,8 +577,8 @@ public class TelaCriador extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
                         .addComponent(TxtContato1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .addGap(0, 49, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -690,9 +696,9 @@ public class TelaCriador extends javax.swing.JFrame {
         }
         java.sql.Date dataSql = new java.sql.Date(data.getTime());
         EventoController controlador = new EventoController();
-        Evento event = controlador.lerEvento(TxtNome1.getText());
+        Evento event = controlador.lerEvento(ComboNomeEvento.getSelectedItem().toString());
         if(event != null){
-            boolean atualizar = controlador.atualizarEvento(TxtNome1.getText(),TxtNovoNome.getText(), ingressos, dataSql, preco, TxtLocal1.getText(), TxtContato1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
+            boolean atualizar = controlador.atualizarEvento(ComboNomeEvento.getSelectedItem().toString(),TxtNovoNome.getText(), ingressos, dataSql, preco, TxtLocal1.getText(), TxtContato1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
             if(atualizar){
                 JOptionPane.showMessageDialog(this, "Evento Atualizado com sucesso!");
                 jTabbedPane1.setSelectedIndex(0);
@@ -708,9 +714,16 @@ public class TelaCriador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNovoNomeActionPerformed
 
-    private void TxtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNome1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNome1ActionPerformed
+    private void ComboNomeEventoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboNomeEventoFocusGained
+        ComboNomeEvento.removeAllItems();
+        EventoController controlador = new EventoController();
+        List<Evento> listaEventos = controlador.lerEventosCadastrados();
+        if(!listaEventos.isEmpty()){
+            for(Evento e : listaEventos){
+                ComboNomeEvento.addItem(e.getNomeEvento());
+            }
+        }
+    }//GEN-LAST:event_ComboNomeEventoFocusGained
 
     /**
      * @param args the command line arguments
@@ -748,6 +761,7 @@ public class TelaCriador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboNomeEvento;
     private javax.swing.JFormattedTextField TxtContato;
     private javax.swing.JFormattedTextField TxtContato1;
     private javax.swing.JFormattedTextField TxtData;
@@ -761,7 +775,6 @@ public class TelaCriador extends javax.swing.JFrame {
     private javax.swing.JTextField TxtLocal;
     private javax.swing.JTextField TxtLocal1;
     private javax.swing.JTextField TxtNome;
-    private javax.swing.JTextField TxtNome1;
     private javax.swing.JTextField TxtNovoNome;
     private javax.swing.JTextField TxtPreco;
     private javax.swing.JTextField TxtPreco1;

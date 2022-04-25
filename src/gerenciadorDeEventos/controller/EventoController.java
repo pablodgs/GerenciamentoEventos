@@ -7,7 +7,9 @@ package gerenciadorDeEventos.controller;
 
 import gerenciadorDeEventos.dal.EventoDAO;
 import gerenciadorDeEventos.model.Evento;
+import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -31,7 +33,14 @@ public class EventoController {
         evento = eventoDAO.readEvento(nome);
         return evento;
     }
-    
+        
+    public List<Evento> lerEventosCadastrados(){
+        System.out.println("INICIOU METODO DO CONTROLLER PARA LER EVENTOS CADASTRADOS!");
+        EventoDAO eventoDao = new EventoDAO();
+        ResultSet rs = eventoDao.getEventos();
+        return eventoDao.listaEventos(rs);
+    }
+        
     public boolean atualizarEvento(String nome, String nomeNovo, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario){
         Evento evento = new Evento(nomeNovo, ingressos, data, preco, local, contato, descricao, horario);
         EventoDAO eventoDAO = new EventoDAO();
