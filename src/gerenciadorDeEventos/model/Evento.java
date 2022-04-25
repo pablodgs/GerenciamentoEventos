@@ -6,11 +6,13 @@
 package gerenciadorDeEventos.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -30,6 +32,24 @@ public class Evento {
     private Date data;
     private String contato;
     private String local;
+    
+    @OneToMany
+    private List<Palestra> palestras;
+    
+    public Evento(int id, String nome, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario){
+        this.id = id;
+        this.nomeEvento = nome;
+        this.ingressos = ingressos;
+        this.data = data;
+        this.preco = preco;
+        this.local = local;
+        this.contato = contato;
+        this.descricao = descricao;
+        this.horario = horario;
+        
+    }
+    
+    
     
     
     public Evento(String nome, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario){

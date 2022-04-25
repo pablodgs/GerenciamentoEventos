@@ -90,6 +90,7 @@ public class EventoDAO {
     
     private Evento pegaDados(ResultSet rs) throws SQLException{
         if(rs != null && rs.next()){
+            int id = rs.getInt("id");
             String nome = rs.getString("nomeEvento");
             String contato = rs.getString("contato");
             String descricao = rs.getString("descricao");
@@ -99,7 +100,7 @@ public class EventoDAO {
             float preco = rs.getFloat("preco");
             Date data = rs.getDate("data");
             
-            Evento evento = new Evento(nome, ingressos, data, preco, local, contato, descricao, horario);
+            Evento evento = new Evento(id, nome, ingressos, data, preco, local, contato, descricao, horario);
             return evento;
         }
         return null;

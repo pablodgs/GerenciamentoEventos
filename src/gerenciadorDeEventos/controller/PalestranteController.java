@@ -43,4 +43,6 @@ public class PalestranteController {
         PalestranteDAO criadorDAO = new PalestranteDAO();
         criadorDAO.deletar(LoginSession.cpf);
     }
+    
+    
 }

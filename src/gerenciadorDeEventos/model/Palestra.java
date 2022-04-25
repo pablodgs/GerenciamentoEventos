@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,17 +27,14 @@ public class Palestra {
     private String descricao;
     private int vagas;
     private String local;
-    private String contato;
     private String horario;
     private Date data;
     
-    public Palestra(int id, String nomePalestra, String descricao, int vagas, String local, String contato, String horario, Date data){
-        this.id = id;
+    public Palestra(String nomePalestra, String descricao, int vagas, String local, String horario, Date data){
         this.nomePalestra = nomePalestra;
         this.descricao = descricao;
         this.vagas = vagas;
         this.local = local;
-        this.contato = contato;
         this.horario = horario;
         this.data = data;
     }
@@ -79,14 +77,6 @@ public class Palestra {
 
     public void setLocal(String local) {
         this.local = local;
-    }
-
-    public String getContato() {
-        return contato;
-    }
-
-    public void setContato(String contato) {
-        this.contato = contato;
     }
 
     public String getHorario() {
