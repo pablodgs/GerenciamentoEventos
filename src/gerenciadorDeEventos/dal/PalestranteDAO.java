@@ -43,7 +43,6 @@ public class PalestranteDAO {
             Statement stmt = dao.createStatement();
             rs = stmt.executeQuery(sql);
             Palestrante palestrante = pegaDados(rs);
-            dao.close();
             return palestrante;
         } catch (SQLException e) {
             e.printStackTrace();

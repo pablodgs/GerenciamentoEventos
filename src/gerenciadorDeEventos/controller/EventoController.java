@@ -34,9 +34,9 @@ public class EventoController {
         return evento;
     }
         
-    public List<Evento> lerEventosCadastrados(){
+    public List<Evento> lerEventosCriador(){
         EventoDAO eventoDao = new EventoDAO();
-        ResultSet rs = eventoDao.getEventos();
+        ResultSet rs = eventoDao.getEventosCriador();
         return eventoDao.listaEventos(rs);
     }
         
@@ -48,5 +48,11 @@ public class EventoController {
             return true;
         }
         return false;
+    }
+    
+    public List<Evento> lerTodosEventos(){
+        EventoDAO eventoDao = new EventoDAO();
+        ResultSet rs = eventoDao.getTodosEventos();
+        return eventoDao.listaEventos(rs);
     }
 }

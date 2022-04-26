@@ -17,7 +17,7 @@ import java.sql.Statement;
  * @author lucas
  */
 public class CriadorDAO {
-        private Criador pegaDados(ResultSet rs) throws SQLException{
+    private Criador pegaDados(ResultSet rs) throws SQLException{
         if(rs != null && rs.next()){
             String nome = rs.getString("nome");
             String senha = rs.getString("senha");

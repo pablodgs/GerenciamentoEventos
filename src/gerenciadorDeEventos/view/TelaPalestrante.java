@@ -9,10 +9,12 @@ import gerenciadorDeEventos.controller.EventoController;
 import gerenciadorDeEventos.controller.PalestraController;
 import gerenciadorDeEventos.controller.PalestranteController;
 import gerenciadorDeEventos.model.Evento;
+import gerenciadorDeEventos.model.Palestra;
 import gerenciadorDeEventos.segurança.LoginSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -75,7 +77,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        TxtNomeEvento = new javax.swing.JTextField();
         TxtNomePalestra = new javax.swing.JTextField();
         TxtVagas = new javax.swing.JTextField();
         TxtHorario = new javax.swing.JFormattedTextField();
@@ -83,6 +84,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TxtDescricao = new javax.swing.JTextArea();
         TxtData = new javax.swing.JFormattedTextField();
+        ComboNomeEvento = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -93,15 +95,15 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        TxtNomeEvento1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        TxtNomePalestra1 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         TxtVagas1 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         TxtHorario1 = new javax.swing.JFormattedTextField();
         jLabel26 = new javax.swing.JLabel();
         TxtLocal1 = new javax.swing.JTextField();
+        ComboNomePalestra1 = new javax.swing.JComboBox<>();
+        NovoNome1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +135,12 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel7.setText("Telefone:  ");
 
         jLabel8.setText("Sexo: ");
+
+        jTextFieldNomePalestranteAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomePalestranteAlterarActionPerformed(evt);
+            }
+        });
 
         try {
             jFormattedTextFieldTelefonePalestranteAlterar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
@@ -280,7 +288,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
 
         jLabel11.setText("Cadastrar Palestra");
 
-        jLabel12.setText("Entre com o nome do Evento:");
+        jLabel12.setText("Selecione o Evento: ");
 
         jLabel13.setText("Nome da Palestra: ");
 
@@ -324,6 +332,12 @@ public class TelaPalestrante extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        ComboNomeEvento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ComboNomeEventoFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -348,8 +362,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtNomeEvento, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtVagas, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(TxtVagas, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ComboNomeEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(87, 87, 87)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +373,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                     .addComponent(TxtLocal, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,8 +386,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNomePalestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtNomePalestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -394,7 +408,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -432,7 +446,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Cadastrar");
+        jButton7.setText("Alterar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -441,7 +455,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
 
         jLabel23.setText("Alterar Palestra");
 
-        jLabel24.setText("Entre com o nome do Evento:");
+        jLabel24.setText("Selecione a Palestra: ");
 
         jLabel25.setText("Nome da Palestra: ");
 
@@ -452,6 +466,18 @@ public class TelaPalestrante extends javax.swing.JFrame {
         }
 
         jLabel26.setText("Descrição: ");
+
+        ComboNomePalestra1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ComboNomePalestra1FocusGained(evt);
+            }
+        });
+
+        NovoNome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NovoNome1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -470,25 +496,26 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addComponent(jButton6)
                                 .addGap(65, 65, 65)
                                 .addComponent(jButton7))
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(TxtHorario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtNomeEvento1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtVagas1, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(87, 87, 87)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(TxtHorario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(TxtVagas1, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(ComboNomePalestra1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtNomePalestra1, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtLocal1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtData1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane2))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                                    .addComponent(TxtData1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(NovoNome1))))))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,8 +528,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addComponent(jLabel25))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtNomeEvento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNomePalestra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboNomePalestra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NovoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -562,7 +589,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
         java.sql.Date dataSql = new java.sql.Date(data.getTime());
         PalestraController controlador = new PalestraController();
         EventoController controladorEvento = new EventoController();
-        Evento event = controladorEvento.lerEvento(TxtNomeEvento.getText());
+        Evento event = controladorEvento.lerEvento(ComboNomeEvento.getSelectedItem().toString());
         if(event != null){
             boolean cadastro = controlador.cadastrarPalestra(event, TxtNomePalestra.getText(), TxtDescricao.getText(), vagas, TxtLocal.getText(), TxtHorario.getText(), dataSql);
             if(cadastro){
@@ -632,13 +659,65 @@ public class TelaPalestrante extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxSexoPalestranteAlterarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        int vagas = Integer.parseInt(TxtVagas1.getText());
+        Date data = null;
+        try {
+            data = formato.parse(TxtData1.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaCriador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        java.sql.Date dataSql = new java.sql.Date(data.getTime());
+        PalestraController controlador = new PalestraController();
+        Palestra existente = controlador.lerPalestra(NovoNome1.getText());
+        if(existente == null){
+            boolean atualizar = controlador.atualizarPalestra(ComboNomePalestra1.getSelectedItem().toString(), NovoNome1.getText(), vagas, dataSql, TxtLocal1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
+            if(atualizar){
+                JOptionPane.showMessageDialog(this, "Palestra Atualizado com sucesso!");
+                jTabbedPane1.setSelectedIndex(0);
+            }else{
+                JOptionPane.showMessageDialog(this, "Palestra não atualizado!");   
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Palestra já cadastado!");   
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void ComboNomeEventoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboNomeEventoFocusGained
+        ComboNomeEvento.removeAllItems();
+        EventoController controlador = new EventoController();
+        List<Evento> listaEventos = controlador.lerTodosEventos();
+        if(!listaEventos.isEmpty()){
+            for(Evento e : listaEventos){
+                ComboNomeEvento.addItem(e.getNomeEvento());
+            }
+        }
+    }//GEN-LAST:event_ComboNomeEventoFocusGained
+
+    private void NovoNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoNome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NovoNome1ActionPerformed
+
+    private void jTextFieldNomePalestranteAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomePalestranteAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomePalestranteAlterarActionPerformed
+
+    private void ComboNomePalestra1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboNomePalestra1FocusGained
+        ComboNomePalestra1.removeAllItems();
+        PalestraController controlador = new PalestraController();
+        List<Palestra> listaPalestra = controlador.lerPalestraPalestrante();
+        if(!listaPalestra.isEmpty()){
+            for(Palestra e : listaPalestra){
+                ComboNomePalestra1.addItem(e.getNomePalestra());
+            }
+        }
+    }//GEN-LAST:event_ComboNomePalestra1FocusGained
+    
+   
     /**
      * @param args the command line arguments
      */
@@ -675,6 +754,9 @@ public class TelaPalestrante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboNomeEvento;
+    private javax.swing.JComboBox<String> ComboNomePalestra1;
+    private javax.swing.JTextField NovoNome1;
     private javax.swing.JFormattedTextField TxtData;
     private javax.swing.JFormattedTextField TxtData1;
     private javax.swing.JTextArea TxtDescricao;
@@ -683,10 +765,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField TxtHorario1;
     private javax.swing.JTextField TxtLocal;
     private javax.swing.JTextField TxtLocal1;
-    private javax.swing.JTextField TxtNomeEvento;
-    private javax.swing.JTextField TxtNomeEvento1;
     private javax.swing.JTextField TxtNomePalestra;
-    private javax.swing.JTextField TxtNomePalestra1;
     private javax.swing.JTextField TxtVagas;
     private javax.swing.JTextField TxtVagas1;
     private javax.swing.JButton jButton1;

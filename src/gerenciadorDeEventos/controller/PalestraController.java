@@ -9,7 +9,9 @@ import gerenciadorDeEventos.dal.EventoDAO;
 import gerenciadorDeEventos.dal.PalestraDAO;
 import gerenciadorDeEventos.model.Evento;
 import gerenciadorDeEventos.model.Palestra;
+import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -27,5 +29,28 @@ public class PalestraController {
         }else{
             return false;
         }
+    }
+   
+    public boolean atualizarPalestra(String nome, String nomeNovo, int vagas, Date data, String local, String descricao, String horario){
+        Palestra palestra = new Palestra(nomeNovo, descricao, vagas, local, horario, data);
+        PalestraDAO palestraDAO = new PalestraDAO();
+        boolean update = palestraDAO.atualizarPalestra(palestra, nome);
+        if(update){
+            return true;
+        }
+        return false;
+    }
+    
+    public List<Palestra> lerPalestraPalestrante(){
+        PalestraDAO palestraoDao = new PalestraDAO();
+        ResultSet rs = palestraoDao.getPalestraPalestrante();
+        return palestraoDao.listaPalestras(rs);
+    }
+    
+    public Palestra lerPalestra(String nome){
+        Palestra palestra = null;
+        PalestraDAO palestraDAO = new PalestraDAO();
+        palestra = palestraDAO.readPalestra(nome);
+        return palestra;
     }
 }

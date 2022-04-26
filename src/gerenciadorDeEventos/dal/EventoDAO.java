@@ -68,7 +68,6 @@ public class EventoDAO {
     
     public boolean atualizarEvento(Evento evento, String nome){
         int id = pegarId(nome);
-        System.out.println(id);
         if(id != 0){
             ModuloConexao conec = new ModuloConexao();
             Connection dao = conec.getInstance().sqlConnection;
@@ -135,8 +134,22 @@ public class EventoDAO {
         return null;
     }
     
-    public ResultSet getEventos(){
+    public ResultSet getEventosCriador(){
         String sql = "select * from evento where cpfCriador = '" + LoginSession.cpf + "';";
+        ResultSet rs;
+        Connection dao = ModuloConexao.getInstance().sqlConnection;
+        try {
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public ResultSet getTodosEventos(){
+        String sql = "select * from evento;";
         ResultSet rs;
         Connection dao = ModuloConexao.getInstance().sqlConnection;
         try {

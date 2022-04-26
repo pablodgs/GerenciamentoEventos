@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -30,6 +31,21 @@ public class Palestra {
     private String horario;
     private Date data;
     
+    @ManyToOne
+    @JoinColumn(name = "cpfPalestrante")
+    private Palestrante palestrate;
+    
+    
+    public Palestra(int id, String nomePalestra, String descricao, int vagas, String local, String horario, Date data, Palestrante palestrante){
+        this.id = id;
+        this.nomePalestra = nomePalestra;
+        this.descricao = descricao;
+        this.vagas = vagas;
+        this.local = local;
+        this.horario = horario;
+        this.data = data;
+        this.palestrate = palestrante;
+    }
     public Palestra(String nomePalestra, String descricao, int vagas, String local, String horario, Date data){
         this.nomePalestra = nomePalestra;
         this.descricao = descricao;
