@@ -161,6 +161,7 @@ public class PalestraDAO {
     
     public boolean atualizarPalestra(Palestra palestra, String nome){
         int id = pegarId(nome);
+        System.out.println(id);
         if(id != 0){
             ModuloConexao conec = new ModuloConexao();
             Connection dao = conec.getInstance().sqlConnection;
