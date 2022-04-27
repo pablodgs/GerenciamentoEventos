@@ -53,4 +53,10 @@ public class PalestraController {
         palestra = palestraDAO.readPalestra(nome);
         return palestra;
     }
+    
+    public List<Palestra> lerPalestrasEvento(int id){
+        PalestraDAO palestraoDao = new PalestraDAO();
+        ResultSet rs = palestraoDao.getPalestraEvento(id);
+        return palestraoDao.listaPalestras(rs);
+    }
 }

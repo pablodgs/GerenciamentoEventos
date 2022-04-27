@@ -31,7 +31,8 @@ public class Evento {
     private int ingressos;
     private float preco;
     private String horario;
-    private Date data;
+    private Date dataInicio;
+    private Date dataFim;
     private String contato;
     private String local;
     
@@ -42,11 +43,12 @@ public class Evento {
     @JoinColumn(name = "cpfCriador")
     private Criador criador;
     
-    public Evento(int id, String nome, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario, Criador criador){
+    public Evento(int id, String nome, int ingressos, Date dataInicio, Date dataFim, float preco, String local, String contato, String descricao, String horario, Criador criador){
         this.id = id;
         this.nomeEvento = nome;
         this.ingressos = ingressos;
-        this.data = data;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
         this.preco = preco;
         this.local = local;
         this.contato = contato;
@@ -55,11 +57,12 @@ public class Evento {
         this.criador = criador;
     }
     
-    public Evento(int id, String nome, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario){
+    public Evento(int id, String nome, int ingressos, Date dataInicio, Date dataFim, float preco, String local, String contato, String descricao, String horario){
         this.id = id;
         this.nomeEvento = nome;
         this.ingressos = ingressos;
-        this.data = data;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
         this.preco = preco;
         this.local = local;
         this.contato = contato;
@@ -67,10 +70,11 @@ public class Evento {
         this.horario = horario;
     }
     
-    public Evento(String nome, int ingressos, Date data, float preco, String local, String contato, String descricao, String horario){
+    public Evento(String nome, int ingressos, Date dataInicio, Date dataFim, float preco, String local, String contato, String descricao, String horario){
         this.nomeEvento = nome;
         this.ingressos = ingressos;
-        this.data = data;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
         this.preco = preco;
         this.local = local;
         this.contato = contato;
@@ -78,6 +82,39 @@ public class Evento {
         this.horario = horario;
         
     }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public List<Palestra> getPalestras() {
+        return palestras;
+    }
+
+    public void setPalestras(List<Palestra> palestras) {
+        this.palestras = palestras;
+    }
+
+    public Criador getCriador() {
+        return criador;
+    }
+
+    public void setCriador(Criador criador) {
+        this.criador = criador;
+    }
+    
 
     public int getId() {
         return id;
@@ -126,14 +163,6 @@ public class Evento {
 
     public void setHorario(String horario) {
         this.horario = horario;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public String getLocal() {

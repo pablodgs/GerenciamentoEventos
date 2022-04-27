@@ -123,6 +123,20 @@ public class PalestraDAO {
         return null;
     }
     
+    public ResultSet getPalestraEvento(int id){
+        String sql = "select * from evento_palestra inner join palestra on palestras_id = id where Evento_id = " + id + ";";
+        ResultSet rs;
+        Connection dao = ModuloConexao.getInstance().sqlConnection;
+        try {
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public List<Palestra> listaPalestras(ResultSet rs){
         List<Palestra> palestras= new ArrayList<>();
         if(rs == null){

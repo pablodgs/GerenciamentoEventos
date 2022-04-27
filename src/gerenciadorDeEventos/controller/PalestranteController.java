@@ -40,9 +40,12 @@ public class PalestranteController {
     }
     
     public void deletarPalestrante(){
-        PalestranteDAO criadorDAO = new PalestranteDAO();
-        criadorDAO.deletar(LoginSession.cpf);
+        PalestranteDAO palestranteDAO = new PalestranteDAO();
+        palestranteDAO.deletar(LoginSession.cpf);
     }
     
-    
+    public Palestrante readPalestrante(String cpf){
+        PalestranteDAO palestranteDao = new PalestranteDAO();
+        return palestranteDao.readPalestrante(cpf);
+    }
 }

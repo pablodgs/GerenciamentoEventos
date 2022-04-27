@@ -27,8 +27,9 @@ public class EventoDAO {
     public boolean cadastrarEvento(Evento evento){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
-        String sql = "INSERT INTO evento(contato, data, descricao, horario, local, nomeEvento, preco, ingressos, cpfCriador) values ('" + evento.getContato() 
-                                                                                                                            + "', '" + evento.getData() 
+        String sql = "INSERT INTO evento(contato, dataInicio, dataFim, descricao, horario, local, nomeEvento, preco, ingressos, cpfCriador) values ('" + evento.getContato() 
+                                                                                                                            + "', '" + evento.getDataInicio() 
+                                                                                                                            + "', '" + evento.getDataFim() 
                                                                                                                             + "', '" + evento.getDescricao() 
                                                                                                                             + "', '" + evento.getHorario() 
                                                                                                                             + "', '" + evento.getLocal() 
@@ -72,7 +73,8 @@ public class EventoDAO {
             ModuloConexao conec = new ModuloConexao();
             Connection dao = conec.getInstance().sqlConnection;
             String sql = "UPDATE evento set contato = '" + evento.getContato() +
-                                            "', data = '" + evento.getData() + 
+                                            "', dataInicio = '" + evento.getDataInicio() + 
+                                            "', dataFim = '" + evento.getDataFim() + 
                                             "', descricao = '" + evento.getDescricao() + 
                                             "', horario = '" + evento.getHorario() + 
                                             "', local = '" + evento.getLocal() + 
@@ -101,7 +103,8 @@ public class EventoDAO {
             int id = rs.getInt("id");
             String nomeEvento = rs.getString("nomeEvento");
             int ingressos = rs.getInt("ingressos");
-            Date data = rs.getDate("data");
+            Date dataInicio = rs.getDate("dataInicio");
+            Date dataFinal = rs.getDate("dataFim");
             float preco = rs.getFloat("preco");
             String local = rs.getString("local");
             String contato = rs.getString("contato");
@@ -111,7 +114,7 @@ public class EventoDAO {
             
             Criador criador = criadorDao.readCriador(cpfCriador);
             
-            Evento evento = new Evento(id, nomeEvento, ingressos, data, preco, local, contato, descricao, horario, criador);
+            Evento evento = new Evento(id, nomeEvento, ingressos, dataInicio, dataFinal, preco, local, contato, descricao, horario, criador);
             return evento;
         }
         return null;
@@ -126,10 +129,23 @@ public class EventoDAO {
             Statement stmt = dao.createStatement();
             rs = stmt.executeQuery(sql);
             Evento evento = pegaDados(rs);
-            dao.close();
             return evento;
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ResultSet getEventosUsuario(){
+        String sql = "select * from inscricao inner join evento on inscricao.idEvento = evento.id where cpfUsuario = '" + LoginSession.cpf + "';";
+        ResultSet rs;
+        Connection dao = ModuloConexao.getInstance().sqlConnection;
+        try {
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

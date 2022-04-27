@@ -42,7 +42,6 @@ public class UsuarioDAO {
             Statement stmt = dao.createStatement();
             rs = stmt.executeQuery(sql);
             Usuario usuario = pegaDados(rs);
-            dao.close();
             return usuario;
         } catch (SQLException e) {
             e.printStackTrace();

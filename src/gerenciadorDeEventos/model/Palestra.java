@@ -55,6 +55,15 @@ public class Palestra {
         this.data = data;
     }
 
+    public Palestrante getPalestrate() {
+        return palestrate;
+    }
+
+    public void setPalestrate(Palestrante palestrate) {
+        this.palestrate = palestrate;
+    }
+    
+
     public int getId() {
         return id;
     }
