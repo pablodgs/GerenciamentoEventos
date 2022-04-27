@@ -51,6 +51,7 @@ public class UsuarioDAO {
     }
 
     public int updateUsuario(Usuario usuario){
+        ModuloConexao conec = new ModuloConexao();
         String query = "UPDATE usuario SET "
                 + "nome='" + usuario.getNome() + "', "
                 + "sexo='" + usuario.getSexo() + "', "
@@ -59,7 +60,8 @@ public class UsuarioDAO {
                 + "senha='" + usuario.getSenha() + "' "
                 + "WHERE cpf='" + usuario.getCpf() + "'";
         try{
-            Statement stmt = conexao.createStatement();
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
             return stmt.executeUpdate(query);
         }catch(SQLException e){
             e.printStackTrace();
