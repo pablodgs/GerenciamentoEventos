@@ -233,7 +233,7 @@ public class TelaCadastroCriador extends javax.swing.JFrame {
                 principal.setLocationRelativeTo(null);
                 this.setVisible(false);
             }else{
-                JOptionPane.showMessageDialog(this, "CPF já cadastrado!!");
+                JOptionPane.showMessageDialog(this, "CPF/Email já cadastrado!!");
             }
         }else{
             JOptionPane.showMessageDialog(this, "Senhas não compatíveis");

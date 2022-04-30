@@ -48,6 +48,23 @@ public class CriadorDAO {
         }
         return null;
     }
+            
+    public Criador readCriadorEmail(String email){
+        ModuloConexao conec = new ModuloConexao();
+        String sql = "select * from criador where email = '" + email + "';";
+        ResultSet rs = null;
+        try {
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            Criador criador = pegaDados(rs);
+            return criador;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public void cadastrar(Criador criador){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;

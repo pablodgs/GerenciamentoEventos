@@ -21,8 +21,9 @@ public class CriadorController {
         Criador criador = new Criador(nomeCriador, cpf, sexo, endereco, email, senha, telefone);
         CriadorDAO criadorDAO = new CriadorDAO();
         Criador criadorResult = criadorDAO.readCriador(cpf);
+        Criador criadorResult2 = criadorDAO.readCriadorEmail(email);
         
-        if(criadorResult == null){
+        if(criadorResult == null && criadorResult2 == null){
             criadorDAO.cadastrar(criador);
             return 1;
         }

@@ -21,8 +21,9 @@ public class UsuarioController {
         Usuario usuario = new Usuario(nomeUsuario, cpf, sexo, endereco, email, senha);
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioResult = usuarioDAO.readUsuario(cpf);
+        Usuario usuarioResult2 = usuarioDAO.readUsuarioEmail(email);
         
-        if(usuarioResult == null){
+        if(usuarioResult == null && usuarioResult2 == null){
             usuarioDAO.cadastrar(usuario);
             return 1;
         }

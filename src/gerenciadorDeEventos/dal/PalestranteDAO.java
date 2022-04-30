@@ -50,6 +50,22 @@ public class PalestranteDAO {
         return null;
     }
     
+    public Palestrante readPalestranteEmail(String email){
+        ModuloConexao conec = new ModuloConexao();
+        String sql = "select * from palestrante where email = '" + email + "';";
+        ResultSet rs = null;
+        try {
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            Palestrante palestrante = pegaDados(rs);
+            return palestrante;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public void cadastrar(Palestrante palestrante){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;

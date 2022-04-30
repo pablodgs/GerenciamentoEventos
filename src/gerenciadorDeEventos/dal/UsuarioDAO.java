@@ -48,6 +48,23 @@ public class UsuarioDAO {
         }
         return null;
     }
+    
+    
+    public Usuario readUsuarioEmail(String email){
+        ModuloConexao conec = new ModuloConexao();
+        String sql = "select * from usuario where email = '" + email + "';";
+        ResultSet rs = null;
+        try {
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
+            rs = stmt.executeQuery(sql);
+            Usuario usuario = pegaDados(rs);
+            return usuario;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public int updateUsuario(Usuario usuario){
         ModuloConexao conec = new ModuloConexao();

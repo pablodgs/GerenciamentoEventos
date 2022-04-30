@@ -20,8 +20,10 @@ public class PalestranteController {
     Palestrante palestrante = new Palestrante(nome, cpf, sexo, endereco, email, senha, experiencia, formacao, telefone);
     PalestranteDAO palestranteDAO = new PalestranteDAO();
     Palestrante palestranteResult = palestranteDAO.readPalestrante(cpf);
+    Palestrante palestranteResult2 = palestranteDAO.readPalestranteEmail(email);
     
-    if(palestranteResult == null){
+    
+    if(palestranteResult == null && palestranteResult2 == null){
             palestranteDAO.cadastrar(palestrante);
             return 1;
         }
