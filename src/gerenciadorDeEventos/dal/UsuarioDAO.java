@@ -70,8 +70,10 @@ public class UsuarioDAO {
 
     public boolean deleteUsuario(String cpf){
         String query = "DELETE FROM usuario WHERE cpf='" + cpf  + "'";
+        ModuloConexao conec = new ModuloConexao();
         try {
-            Statement stmt = conexao.createStatement();
+            Connection dao = conec.getInstance().sqlConnection;
+            Statement stmt = dao.createStatement();
             stmt.executeUpdate(query);
             return true;
         } catch (SQLException e) {

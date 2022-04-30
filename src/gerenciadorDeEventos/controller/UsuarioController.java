@@ -40,8 +40,8 @@ public class UsuarioController {
         return true;
     }
     public void deletarUsuario(){
-        UsuarioDAO criadorDAO = new UsuarioDAO();
-        criadorDAO.deleteUsuario(LoginSession.cpf);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.deleteUsuario(LoginSession.cpf);
     }
     
 }

@@ -61,13 +61,12 @@ public class Usuario {
         return senha;
     }
 
- //   public Palestrante getPalestrante() {
- //       return palestrante;
-  //  }
-
- //   public Criador getCriador() {
-  //      return criador;
-  //  }
+    //   public Palestrante getPalestrante() {
+    //       return palestrante;
+    //  }
+    //   public Criador getCriador() {
+    //      return criador;
+    //  }
 
     public void setNome(String nome) {
         this.nome = nome;
