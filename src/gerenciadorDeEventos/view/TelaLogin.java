@@ -55,7 +55,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        logarBtn.setText("logar");
+        logarBtn.setText("Logar");
         logarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logarBtnActionPerformed(evt);
