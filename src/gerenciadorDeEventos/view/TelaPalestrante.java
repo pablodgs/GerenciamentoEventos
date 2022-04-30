@@ -543,15 +543,14 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addComponent(jButton7))
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(TxtHorario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TxtVagas1, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(ComboNomePalestra1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel26)
+                                    .addComponent(ComboNomePalestra1, 0, 204, Short.MAX_VALUE)
+                                    .addComponent(TxtVagas1)
+                                    .addComponent(TxtHorario1))
                                 .addGap(83, 83, 83)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,7 +718,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
         java.sql.Date dataSql = new java.sql.Date(data.getTime());
         PalestraController controlador = new PalestraController();
         Palestra existente = controlador.lerPalestra(NovoNome1.getText());
-        if(existente == null){
+        Palestra p = controlador.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
+        if(existente == null || p.getId() == existente.getId()){
             boolean atualizar = controlador.atualizarPalestra(ComboNomePalestra1.getSelectedItem().toString(), NovoNome1.getText(), vagas, dataSql, TxtLocal1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
             if(atualizar){
                 JOptionPane.showMessageDialog(this, "Palestra Atualizado com sucesso!");
@@ -728,7 +728,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Palestra não atualizado!");   
             }
         }else{
-            JOptionPane.showMessageDialog(this, "Palestra já cadastado!");   
+            JOptionPane.showMessageDialog(this, "ERRO: Nome de palestra já existente!");
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -773,15 +773,19 @@ public class TelaPalestrante extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void ComboNomePalestra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNomePalestra1ActionPerformed
-        PalestraController palestracontroller = new PalestraController();
-        Palestra palestra = palestracontroller.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
-        NovoNome1.setText(palestra.getNomePalestra());
-        TxtVagas1.setText(String.valueOf(palestra.getVagas()));
-        TxtHorario1.setText(palestra.getHorario());
-        TxtLocal1.setText(palestra.getLocal());
-        TxtDescricao1.setText(palestra.getDescricao());
-        SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
-        TxtData1.setText(out.format(palestra.getData()));
+        Object obj = evt.getSource();
+        if(obj == ComboNomePalestra1)
+        {
+            PalestraController palestracontroller = new PalestraController();
+            Palestra palestra = palestracontroller.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
+            NovoNome1.setText(palestra.getNomePalestra());
+            TxtVagas1.setText(String.valueOf(palestra.getVagas()));
+            TxtHorario1.setText(palestra.getHorario());
+            TxtLocal1.setText(palestra.getLocal());
+            TxtDescricao1.setText(palestra.getDescricao());
+            SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
+            TxtData1.setText(out.format(palestra.getData()));
+        }
     }//GEN-LAST:event_ComboNomePalestra1ActionPerformed
     
    

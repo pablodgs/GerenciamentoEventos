@@ -792,7 +792,8 @@ public class TelaCriador extends javax.swing.JFrame {
         java.sql.Date dataSqlFim = new java.sql.Date(dataFim.getTime());
         EventoController controlador = new EventoController();
         Evento existente = controlador.lerEvento(TxtNovoNome.getText());
-        if(existente == null){
+        Evento e = controlador.lerEvento(ComboNomeEvento.getSelectedItem().toString());
+        if(existente == null || e.getId() == existente.getId()){
             boolean atualizar = controlador.atualizarEvento(ComboNomeEvento.getSelectedItem().toString(), TxtNovoNome.getText(), ingressos, dataSqlInicial, dataSqlFim, preco, TxtLocal1.getText(), TxtContato1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
             if(atualizar){
                 JOptionPane.showMessageDialog(this, "Evento Atualizado com sucesso!");
@@ -803,7 +804,6 @@ public class TelaCriador extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Evento já cadastado!");   
         }
-
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void TxtNovoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNovoNomeActionPerformed
@@ -822,18 +822,22 @@ public class TelaCriador extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboNomeEventoFocusGained
 
     private void ComboNomeEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNomeEventoActionPerformed
-        EventoController controlador = new EventoController();
-        Evento evento = controlador.lerEvento(ComboNomeEvento.getSelectedItem().toString());
-        TxtNovoNome.setText(evento.getNomeEvento());
-        TxtPreco1.setText(String.valueOf(evento.getPreco()));
-        TxtIngressos1.setText(String.valueOf(evento.getIngressos()));
-        SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
-        TxtData1.setText(out.format(evento.getDataInicio()));
-        jFormattedTextField3.setText(out.format(evento.getDataFim()));
-        TxtLocal1.setText(evento.getLocal());
-        TxtHorario1.setText(evento.getHorario());
-        TxtDescricao1.setText(evento.getDescricao());
-        TxtContato1.setText(evento.getContato());
+        Object obj = evt.getSource();
+        if(obj == ComboNomeEvento)
+        {
+            EventoController controlador = new EventoController();
+            Evento evento = controlador.lerEvento(ComboNomeEvento.getSelectedItem().toString());
+            TxtNovoNome.setText(evento.getNomeEvento());
+            TxtPreco1.setText(String.valueOf(evento.getPreco()));
+            TxtIngressos1.setText(String.valueOf(evento.getIngressos()));
+            SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
+            TxtData1.setText(out.format(evento.getDataInicio()));
+            jFormattedTextField3.setText(out.format(evento.getDataFim()));
+            TxtLocal1.setText(evento.getLocal());
+            TxtHorario1.setText(evento.getHorario());
+            TxtDescricao1.setText(evento.getDescricao());
+            TxtContato1.setText(evento.getContato());
+        }
     }//GEN-LAST:event_ComboNomeEventoActionPerformed
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
