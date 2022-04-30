@@ -8,7 +8,6 @@ package gerenciadorDeEventos.view;
 import gerenciadorDeEventos.controller.EventoController;
 import gerenciadorDeEventos.controller.InscricaoController;
 import gerenciadorDeEventos.controller.PalestraController;
-import gerenciadorDeEventos.controller.PalestranteController;
 import gerenciadorDeEventos.controller.UsuarioController;
 import gerenciadorDeEventos.model.Evento;
 import gerenciadorDeEventos.model.Inscricao;
@@ -16,12 +15,9 @@ import gerenciadorDeEventos.model.Palestra;
 import static gerenciadorDeEventos.model.gerenciadorDeEventos.usuarioController;
 import gerenciadorDeEventos.segurança.LoginSession;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import static sun.util.calendar.CalendarUtils.mod;
-import static sun.util.calendar.CalendarUtils.mod;
 
 /**
  *
@@ -34,7 +30,9 @@ public class TelaUsuario extends javax.swing.JFrame {
      */
     public TelaUsuario() {
         initComponents();
-        //jTextField1.setText(LoginSession.nome);;
+//        txtNome.setText(LoginSession.nome);
+//        UsuarioController controleUsuario = new UsuarioController();
+//        Usuario usuarioLogado = controleUsuario.;
     }
 
     /**
@@ -54,8 +52,9 @@ public class TelaUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField(LoginSession.nome);
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -149,6 +148,13 @@ public class TelaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton4.setText("Sair");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,16 +163,24 @@ public class TelaUsuario extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(286, 286, 286)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(jButton4)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Página Principal", jPanel2);
+
+        //txtNome.setText(LoginSession.nome);
 
         saveBtn.setText("Salvar");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -732,6 +746,16 @@ public class TelaUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        LoginSession.nome = null;
+        LoginSession.cpf = null;
+        LoginSession.estalogado = false;
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -786,6 +810,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

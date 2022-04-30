@@ -59,23 +59,21 @@
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPasswordFieldSenhaCriador" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastrarCriador" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCancelarCadastroCriador" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPasswordFieldConfirmarSenhaCriador" min="-2" pref="211" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxSexoCriador" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextFieldTelfoneCriados" pref="211" max="32767" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextFieldCpfCriador" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jButtonCancelarCadastroCriador" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxSexoCriador" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldTelfoneCriados" max="32767" attributes="0"/>
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldCpfCriador" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButtonCadastrarCriador" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>

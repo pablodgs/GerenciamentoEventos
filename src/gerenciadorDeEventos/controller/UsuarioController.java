@@ -5,10 +5,8 @@
  */
 package gerenciadorDeEventos.controller;
 
-import java.util.List;
 import gerenciadorDeEventos.model.Usuario;
 import gerenciadorDeEventos.dal.UsuarioDAO;
-import static gerenciadorDeEventos.model.gerenciadorDeEventos.usuarioDAO;
 import gerenciadorDeEventos.segurança.LoginSession;
 
 

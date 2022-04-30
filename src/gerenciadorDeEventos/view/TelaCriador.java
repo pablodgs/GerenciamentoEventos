@@ -47,6 +47,7 @@ public class TelaCriador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldNomeCriador = new javax.swing.JTextField();
@@ -146,13 +147,25 @@ public class TelaCriador extends javax.swing.JFrame {
             .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
         );
 
+        jButton7.setText("Sair");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(jButton7)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,7 +173,9 @@ public class TelaCriador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(jButton7)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Página Principal", jPanel1);
@@ -208,6 +223,7 @@ public class TelaCriador extends javax.swing.JFrame {
 
         jLabel24.setText("Entre com o nome do Criador: ");
 
+        jToggleButton1.setBackground(new java.awt.Color(255, 153, 153));
         jToggleButton1.setText("Deletar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,18 +235,18 @@ public class TelaCriador extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jToggleButton1)
+                .addGap(114, 114, 114)
+                .addComponent(jButton3)
+                .addGap(77, 77, 77))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(244, 244, 244)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jToggleButton1)
-                .addGap(107, 107, 107)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(91, 91, 91))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(90, 90, 90)
@@ -260,12 +276,12 @@ public class TelaCriador extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(jToggleButton1)
                     .addComponent(jButton3)
-                    .addComponent(jToggleButton1))
-                .addGap(49, 49, 49))
+                    .addComponent(jButton4))
+                .addGap(15, 15, 15))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(56, 56, 56)
@@ -353,7 +369,7 @@ public class TelaCriador extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jLabel11.setText("Horário: ");
+        jLabel11.setText("Horário de início: ");
 
         try {
             TxtHorario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -388,24 +404,19 @@ public class TelaCriador extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(75, 75, 75))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jFormattedTextField1)
+                                        .addGap(60, 60, 60))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
                                             .addComponent(jLabel2)
-                                            .addComponent(jLabel9))
-                                        .addGap(173, 173, 173))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jFormattedTextField1)
-                                        .addGap(60, 60, 60)))
+                                            .addComponent(jLabel9)
+                                            .addComponent(jButton1))
+                                        .addGap(173, 173, 173)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jButton2)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel7)
-                                    .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -413,15 +424,18 @@ public class TelaCriador extends javax.swing.JFrame {
                                         .addComponent(TxtLocal, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(TxtNome, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(jLabel29))
-                                .addGap(60, 60, 60)
+                                .addGap(53, 53, 53)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtIngressos, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtContato, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(TxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel11)
                                     .addComponent(TxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                                    .addComponent(jLabel10)
+                                    .addComponent(TxtContato, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,7 +458,7 @@ public class TelaCriador extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7))
@@ -463,9 +477,9 @@ public class TelaCriador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(TxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TxtContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -568,42 +582,35 @@ public class TelaCriador extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jButton5)
-                                        .addGap(75, 75, 75))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel17)
-                                            .addComponent(jLabel28)
-                                            .addComponent(jLabel26)
-                                            .addComponent(ComboNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(60, 60, 60)))
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton6)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addComponent(jLabel13))
-                                    .addComponent(jLabel5)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel26)
+                                    .addComponent(ComboNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton5))
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton6)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(TxtLocal1)
+                                        .addComponent(TxtLocal1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                         .addComponent(TxtPreco1, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel14)
-                                        .addComponent(jLabel30))
-                                    .addComponent(TxtData1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(TxtContato1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(TxtIngressos1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15)
-                                    .addComponent(TxtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TxtHorario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))))
+                                        .addComponent(jLabel30)
+                                        .addComponent(TxtData1)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                    .addGap(60, 60, 60)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel25)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel15)
+                                        .addComponent(jLabel13)
+                                        .addComponent(TxtHorario1)
+                                        .addComponent(jFormattedTextField3)
+                                        .addComponent(TxtIngressos1)
+                                        .addComponent(TxtNovoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(TxtContato1))
+                                    .addGap(6, 6, 6)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLabel16)))
@@ -815,7 +822,18 @@ public class TelaCriador extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboNomeEventoFocusGained
 
     private void ComboNomeEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNomeEventoActionPerformed
-        // TODO add your handling code here:
+        EventoController controlador = new EventoController();
+        Evento evento = controlador.lerEvento(ComboNomeEvento.getSelectedItem().toString());
+        TxtNovoNome.setText(evento.getNomeEvento());
+        TxtPreco1.setText(String.valueOf(evento.getPreco()));
+        TxtIngressos1.setText(String.valueOf(evento.getIngressos()));
+        SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
+        TxtData1.setText(out.format(evento.getDataInicio()));
+        jFormattedTextField3.setText(out.format(evento.getDataFim()));
+        TxtLocal1.setText(evento.getLocal());
+        TxtHorario1.setText(evento.getHorario());
+        TxtDescricao1.setText(evento.getDescricao());
+        TxtContato1.setText(evento.getContato());
     }//GEN-LAST:event_ComboNomeEventoActionPerformed
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
@@ -825,6 +843,16 @@ public class TelaCriador extends javax.swing.JFrame {
     private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        LoginSession.nome = null;
+        LoginSession.cpf = null;
+        LoginSession.estalogado = false;
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -885,6 +913,7 @@ public class TelaCriador extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBoxSexoCriadorAlterar;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;

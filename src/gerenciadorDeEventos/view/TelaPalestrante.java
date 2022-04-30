@@ -45,6 +45,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -124,9 +125,16 @@ public class TelaPalestrante extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 105, Short.MAX_VALUE)
+                .addComponent(jLabel27)
                 .addContainerGap())
         );
+
+        jButton8.setText("Sair");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,13 +144,19 @@ public class TelaPalestrante extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(299, 299, 299))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jButton8)
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Página Principal", jPanel1);
@@ -186,6 +200,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
 
         jLabel10.setText("Experiência:");
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setText("Deletar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,12 +235,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
                         .addGap(85, 85, 85)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(127, 127, 127)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                                .addComponent(jButton3))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFieldExperienciaPalestranteAlterar, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
@@ -244,8 +253,14 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel9))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jPasswordFieldConfirmarPalestranteAlterar))))))
+                                        .addGap(0, 156, Short.MAX_VALUE))
+                                    .addComponent(jPasswordFieldConfirmarPalestranteAlterar)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(133, 133, 133)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3)))))
                 .addGap(82, 82, 82))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -303,12 +318,12 @@ public class TelaPalestrante extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordFieldSenhaPalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordFieldConfirmarPalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
+                    .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addGap(25, 25, 25))
+                .addGap(15, 15, 15))
         );
 
         jTabbedPane1.addTab("Alterar Cadastro", jPanel3);
@@ -378,9 +393,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
                                 .addComponent(jButton4)
-                                .addGap(65, 65, 65)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton5))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -435,7 +449,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -499,6 +513,11 @@ public class TelaPalestrante extends javax.swing.JFrame {
                 ComboNomePalestra1FocusGained(evt);
             }
         });
+        ComboNomePalestra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboNomePalestra1ActionPerformed(evt);
+            }
+        });
 
         NovoNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -519,9 +538,8 @@ public class TelaPalestrante extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
                                 .addComponent(jButton6)
-                                .addGap(65, 65, 65)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton7))
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -577,7 +595,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -743,6 +761,28 @@ public class TelaPalestrante extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_ComboNomePalestra1FocusGained
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        LoginSession.nome = null;
+        LoginSession.cpf = null;
+        LoginSession.estalogado = false;
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void ComboNomePalestra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNomePalestra1ActionPerformed
+        PalestraController palestracontroller = new PalestraController();
+        Palestra palestra = palestracontroller.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
+        NovoNome1.setText(palestra.getNomePalestra());
+        TxtVagas1.setText(String.valueOf(palestra.getVagas()));
+        TxtHorario1.setText(palestra.getHorario());
+        TxtLocal1.setText(palestra.getLocal());
+        TxtDescricao1.setText(palestra.getDescricao());
+        SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
+        TxtData1.setText(out.format(palestra.getData()));
+    }//GEN-LAST:event_ComboNomePalestra1ActionPerformed
     
    
     /**
@@ -802,6 +842,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBoxSexoPalestranteAlterar;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefonePalestranteAlterar;
     private javax.swing.JLabel jLabel1;
