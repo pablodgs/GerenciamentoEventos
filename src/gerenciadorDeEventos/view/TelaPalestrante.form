@@ -151,14 +151,18 @@
                                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jTextFieldFormacaoPalestranteAlterar" max="32767" attributes="0"/>
+                                          <Component id="jPasswordFieldConfirmarPalestranteAlterar" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldEmailPalestranteAlterar" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jFormattedTextFieldTelefonePalestranteAlterar" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jPasswordFieldConfirmarPalestranteAlterar" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -173,23 +177,6 @@
                       </Group>
                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextFieldTelefonePalestranteAlterar" pref="232" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldEmailPalestranteAlterar" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -203,9 +190,9 @@
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldNomePalestranteAlterar" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldTelefonePalestranteAlterar" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldNomePalestranteAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormattedTextFieldTelefonePalestranteAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -300,6 +287,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomePalestranteAlterarActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.nome)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTelefonePalestranteAlterar">
               <Properties>
@@ -307,10 +297,19 @@
                   <Format format="(##)#####-####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(LoginSession.telefone)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldEnderecoPalestranteAlterar">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.endereco)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldEmailPalestranteAlterar">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.email)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxSexoPalestranteAlterar">
               <Properties>
@@ -334,6 +333,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldFormacaoPalestranteAlterar">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.formacao)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -341,6 +343,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldExperienciaPalestranteAlterar">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.experiencias)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordFieldSenhaPalestranteAlterar">
             </Component>
@@ -401,27 +406,27 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="TxtHorario" alignment="0" pref="200" max="32767" attributes="0"/>
-                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TxtVagas" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ComboNomeEvento" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="TxtHorario" alignment="0" pref="200" max="32767" attributes="0"/>
+                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ComboNomeEvento" max="32767" attributes="0"/>
+                                          </Group>
                                           <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TxtNomePalestra" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="TxtData" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="TxtLocal" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TxtNomePalestra" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TxtLocal" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TxtData" alignment="0" pref="204" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -444,26 +449,20 @@
                           <Component id="TxtNomePalestra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ComboNomeEvento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtVagas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TxtData" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtHorario" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TxtLocal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="TxtHorario" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -506,11 +505,6 @@
                 <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Vagas: "/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hor&#xe1;rio: "/>
@@ -543,8 +537,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtNomePalestra">
-            </Component>
-            <Component class="javax.swing.JTextField" name="TxtVagas">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="TxtHorario">
               <Properties>
@@ -620,23 +612,25 @@
                                   </Group>
                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ComboNomePalestra1" alignment="0" pref="204" max="32767" attributes="0"/>
-                                          <Component id="TxtVagas1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TxtHorario1" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ComboNomePalestra1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="TxtHorario1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="TxtData1" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TxtLocal1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TxtData1" alignment="0" pref="204" max="32767" attributes="0"/>
-                                          <Component id="NovoNome1" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="TxtLocal1" alignment="0" pref="204" max="32767" attributes="0"/>
+                                              <Component id="NovoNome1" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -663,24 +657,18 @@
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtVagas1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TxtData1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtHorario1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TxtLocal1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="TxtHorario1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -703,11 +691,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Vagas: "/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -770,8 +753,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Selecione a Palestra: "/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="TxtVagas1">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>

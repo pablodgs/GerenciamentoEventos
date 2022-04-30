@@ -39,7 +39,7 @@ public class PalestraDAO {
             
             Palestrante palestrante = palestranteDao.readPalestrante(cpfPalestrante);
             
-            Palestra palestra = new Palestra(id, nome, descricao, vagas, local, horario, data, palestrante);
+            Palestra palestra = new Palestra(id, nome, descricao, local, horario, data, palestrante);
             return palestra;
         }
         return null;
@@ -90,7 +90,6 @@ public class PalestraDAO {
                                                                                                                     + "', '" + palestra.getHorario()
                                                                                                                     + "', '" + palestra.getLocal()
                                                                                                                     + "', '" + palestra.getNomePalestra()
-                                                                                                                    + "', '" + palestra.getVagas()
                                                                                                                     + "', '" + LoginSession.cpf
                                                                                                                     +"');";
         try{
@@ -184,7 +183,6 @@ public class PalestraDAO {
                                             "', horario = '" + palestra.getHorario() + 
                                             "', local = '" + palestra.getLocal() + 
                                             "', nomePalestra = '" + palestra.getNomePalestra() +
-                                            "', vagas = '" + palestra.getVagas()+
                                             "' where id = '" + id + "';";
             try{
                 Statement stmt = dao.createStatement();

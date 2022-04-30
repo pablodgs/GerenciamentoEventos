@@ -50,13 +50,13 @@ public class TelaCriador extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldNomeCriador = new javax.swing.JTextField();
+        jTextFieldNomeCriador = new javax.swing.JTextField(LoginSession.nome);
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextFieldEndercoCriadorAlterar = new javax.swing.JTextField();
+        jTextFieldEndercoCriadorAlterar = new javax.swing.JTextField(LoginSession.endereco);
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldEmailCriadorAlterar = new javax.swing.JTextField();
+        jTextFieldEmailCriadorAlterar = new javax.swing.JTextField(LoginSession.email);
         jLabel22 = new javax.swing.JLabel();
         jComboBoxSexoCriadorAlterar = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
@@ -64,7 +64,7 @@ public class TelaCriador extends javax.swing.JFrame {
         jPasswordFieldSenhaCriadorAlterar = new javax.swing.JPasswordField();
         jButton4 = new javax.swing.JButton();
         jPasswordFieldConfirmarSenhaCriadorAlterar = new javax.swing.JPasswordField();
-        jFormattedTextFieldTelefoneCriadorAlterar = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldTelefoneCriadorAlterar = new javax.swing.JFormattedTextField(LoginSession.telefone);
         jLabel24 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();

@@ -55,15 +55,15 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldNomePalestranteAlterar = new javax.swing.JTextField();
-        jFormattedTextFieldTelefonePalestranteAlterar = new javax.swing.JFormattedTextField();
-        jTextFieldEnderecoPalestranteAlterar = new javax.swing.JTextField();
-        jTextFieldEmailPalestranteAlterar = new javax.swing.JTextField();
+        jTextFieldNomePalestranteAlterar = new javax.swing.JTextField(LoginSession.nome);
+        jFormattedTextFieldTelefonePalestranteAlterar = new javax.swing.JFormattedTextField(LoginSession.telefone);
+        jTextFieldEnderecoPalestranteAlterar = new javax.swing.JTextField(LoginSession.endereco);
+        jTextFieldEmailPalestranteAlterar = new javax.swing.JTextField(LoginSession.email);
         jComboBoxSexoPalestranteAlterar = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jTextFieldFormacaoPalestranteAlterar = new javax.swing.JTextField();
+        jTextFieldFormacaoPalestranteAlterar = new javax.swing.JTextField(LoginSession.formacao);
         jLabel10 = new javax.swing.JLabel();
-        jTextFieldExperienciaPalestranteAlterar = new javax.swing.JTextField();
+        jTextFieldExperienciaPalestranteAlterar = new javax.swing.JTextField(LoginSession.experiencias);
         jPasswordFieldSenhaPalestranteAlterar = new javax.swing.JPasswordField();
         jPasswordFieldConfirmarPalestranteAlterar = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
@@ -74,14 +74,12 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         TxtNomePalestra = new javax.swing.JTextField();
-        TxtVagas = new javax.swing.JTextField();
         TxtHorario = new javax.swing.JFormattedTextField();
         TxtLocal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -89,7 +87,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
         TxtData = new javax.swing.JFormattedTextField();
         ComboNomeEvento = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TxtDescricao1 = new javax.swing.JTextArea();
         jLabel20 = new javax.swing.JLabel();
@@ -100,7 +97,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        TxtVagas1 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         TxtHorario1 = new javax.swing.JFormattedTextField();
         jLabel26 = new javax.swing.JLabel();
@@ -249,12 +245,16 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addGap(46, 46, 46)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldFormacaoPalestranteAlterar)
+                                    .addComponent(jPasswordFieldConfirmarPalestranteAlterar)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
-                                            .addComponent(jLabel9))
-                                        .addGap(0, 156, Short.MAX_VALUE))
-                                    .addComponent(jPasswordFieldConfirmarPalestranteAlterar)))
+                                            .addComponent(jLabel9)
+                                            .addComponent(jTextFieldEmailPalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jFormattedTextFieldTelefonePalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7))
+                                        .addGap(0, 15, Short.MAX_VALUE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(133, 133, 133)
@@ -262,18 +262,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3)))))
                 .addGap(82, 82, 82))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(251, 251, 251))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6)
-                            .addComponent(jFormattedTextFieldTelefonePalestranteAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmailPalestranteAlterar))
-                        .addGap(82, 82, 82))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +273,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomePalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldTelefonePalestranteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -335,8 +323,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
         jLabel13.setText("Nome da Palestra: ");
 
         jLabel14.setText("Descrição: ");
-
-        jLabel15.setText("Vagas: ");
 
         jLabel16.setText("Horário: ");
 
@@ -396,24 +382,23 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton5))
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(TxtHorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtVagas, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ComboNomeEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(87, 87, 87)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtNomePalestra, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtLocal, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(TxtHorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ComboNomeEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel18)
+                                    .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(TxtNomePalestra, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))))))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -429,22 +414,18 @@ public class TelaPalestrante extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtNomePalestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel18))
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -461,8 +442,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Cadastrar Palestra", jPanel2);
-
-        jLabel19.setText("Vagas: ");
 
         TxtDescricao1.setColumns(20);
         TxtDescricao1.setRows(5);
@@ -543,22 +522,22 @@ public class TelaPalestrante extends javax.swing.JFrame {
                                 .addComponent(jButton7))
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel26)
-                                    .addComponent(ComboNomePalestra1, 0, 204, Short.MAX_VALUE)
-                                    .addComponent(TxtVagas1)
-                                    .addComponent(TxtHorario1))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel24)
+                                        .addComponent(jLabel20)
+                                        .addComponent(jLabel26)
+                                        .addComponent(ComboNomePalestra1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(TxtHorario1)
+                                        .addComponent(TxtData1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel22))
                                 .addGap(83, 83, 83)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtLocal1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtData1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(NovoNome1))))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(TxtLocal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                        .addComponent(NovoNome1)))))))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -576,20 +555,16 @@ public class TelaPalestrante extends javax.swing.JFrame {
                     .addComponent(NovoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel22))
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel21))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtVagas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtHorario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TxtHorario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -623,7 +598,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        int vagas = Integer.parseInt(TxtVagas.getText());
         Date data = null;
         try {
             data = formato.parse(TxtData.getText());
@@ -635,7 +609,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
         EventoController controladorEvento = new EventoController();
         Evento event = controladorEvento.lerEvento(ComboNomeEvento.getSelectedItem().toString());
         if(event != null){
-            boolean cadastro = controlador.cadastrarPalestra(event, TxtNomePalestra.getText(), TxtDescricao.getText(), vagas, TxtLocal.getText(), TxtHorario.getText(), dataSql);
+            boolean cadastro = controlador.cadastrarPalestra(event, TxtNomePalestra.getText(), TxtDescricao.getText(), TxtLocal.getText(), TxtHorario.getText(), dataSql);
             if(cadastro){
                 JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
                 jTabbedPane1.setSelectedIndex(0);
@@ -708,7 +682,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        int vagas = Integer.parseInt(TxtVagas1.getText());
         Date data = null;
         try {
             data = formato.parse(TxtData1.getText());
@@ -720,7 +693,7 @@ public class TelaPalestrante extends javax.swing.JFrame {
         Palestra existente = controlador.lerPalestra(NovoNome1.getText());
         Palestra p = controlador.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
         if(existente == null || p.getId() == existente.getId()){
-            boolean atualizar = controlador.atualizarPalestra(ComboNomePalestra1.getSelectedItem().toString(), NovoNome1.getText(), vagas, dataSql, TxtLocal1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
+            boolean atualizar = controlador.atualizarPalestra(ComboNomePalestra1.getSelectedItem().toString(), NovoNome1.getText(), dataSql, TxtLocal1.getText(), TxtDescricao1.getText(), TxtHorario1.getText());
             if(atualizar){
                 JOptionPane.showMessageDialog(this, "Palestra Atualizado com sucesso!");
                 jTabbedPane1.setSelectedIndex(0);
@@ -779,7 +752,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
             PalestraController palestracontroller = new PalestraController();
             Palestra palestra = palestracontroller.lerPalestra(ComboNomePalestra1.getSelectedItem().toString());
             NovoNome1.setText(palestra.getNomePalestra());
-            TxtVagas1.setText(String.valueOf(palestra.getVagas()));
             TxtHorario1.setText(palestra.getHorario());
             TxtLocal1.setText(palestra.getLocal());
             TxtDescricao1.setText(palestra.getDescricao());
@@ -837,8 +809,6 @@ public class TelaPalestrante extends javax.swing.JFrame {
     private javax.swing.JTextField TxtLocal;
     private javax.swing.JTextField TxtLocal1;
     private javax.swing.JTextField TxtNomePalestra;
-    private javax.swing.JTextField TxtVagas;
-    private javax.swing.JTextField TxtVagas1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -855,11 +825,9 @@ public class TelaPalestrante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

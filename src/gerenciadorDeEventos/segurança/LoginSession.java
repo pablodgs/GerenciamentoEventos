@@ -10,8 +10,17 @@ package gerenciadorDeEventos.segurança;
  * @author lucas
  */
 public class LoginSession {
-    public static String nome;
     public static String cpf;
+    public static String nome;
+    public static String sexo;
+    public static String endereco;
+    public static String email;
+    public static String senha;
+    public static String cnpj;
+    public static String telefone;
+    public static String dadosPagamento;
+    public static String formacao;
+    public static String experiencias;
     public static boolean estalogado = false;
     
 }

@@ -18,7 +18,6 @@ public class Criador {
     private String cpf;
     private String nome;
     private String senha;
-    private String cnpj;
     private String endereco;
     private String email;
     private String sexo;
@@ -61,14 +60,6 @@ public class Criador {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
     }
 
     public String getEndereco() {

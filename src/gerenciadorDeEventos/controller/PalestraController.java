@@ -18,8 +18,8 @@ import java.util.List;
  * @author lucas
  */
 public class PalestraController {
-    public boolean cadastrarPalestra(Evento evento, String nome, String descricao, int vagas, String local, String horario, Date data){
-        Palestra palestra = new Palestra(nome, descricao, vagas, local, horario, data);
+    public boolean cadastrarPalestra(Evento evento, String nome, String descricao, String local, String horario, Date data){
+        Palestra palestra = new Palestra(nome, descricao, local, horario, data);
         PalestraDAO palestraDAO = new PalestraDAO();
         EventoDAO eventoDAO = new EventoDAO();
         Evento event = eventoDAO.readEvento(evento.getNomeEvento());
@@ -31,8 +31,8 @@ public class PalestraController {
         }
     }
    
-    public boolean atualizarPalestra(String nome, String nomeNovo, int vagas, Date data, String local, String descricao, String horario){
-        Palestra palestra = new Palestra(nomeNovo, descricao, vagas, local, horario, data);
+    public boolean atualizarPalestra(String nome, String nomeNovo, Date data, String local, String descricao, String horario){
+        Palestra palestra = new Palestra(nomeNovo, descricao, local, horario, data);
         PalestraDAO palestraDAO = new PalestraDAO();
         boolean update = palestraDAO.atualizarPalestra(palestra, nome);
         if(update){

@@ -54,7 +54,6 @@ public class InscricaoDAO {
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
         String sql = "INSERT INTO INSCRICAO(idEvento, cpfUsuario) values (" + id + ",'" + cpf + "');";
-        System.out.println(sql);
         try{
             Statement stmt = dao.createStatement();
             stmt.executeUpdate(sql);

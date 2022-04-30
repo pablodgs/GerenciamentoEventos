@@ -16,13 +16,10 @@ public class InscricaoController {
     public boolean inscrever(String cpf, String nome){
         InscricaoDAO inscricaoDao = new InscricaoDAO();
         boolean inscricao = inscricaoDao.inscrever(cpf, nome);
-        if(inscricao){
-            return true;
-        }
-        return false;
+        return inscricao;
     }
     public Inscricao lerInscricao(String cpf, String nome){
-        Inscricao inscricao = null;
+        Inscricao inscricao;
         InscricaoDAO inscricaoDao = new InscricaoDAO();
         inscricao = inscricaoDao.readInscricao(cpf, nome);
         return inscricao;

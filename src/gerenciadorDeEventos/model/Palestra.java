@@ -26,7 +26,6 @@ public class Palestra {
     private int id;
     private String nomePalestra;
     private String descricao;
-    private int vagas;
     private String local;
     private String horario;
     private Date data;
@@ -36,20 +35,18 @@ public class Palestra {
     private Palestrante palestrate;
     
     
-    public Palestra(int id, String nomePalestra, String descricao, int vagas, String local, String horario, Date data, Palestrante palestrante){
+    public Palestra(int id, String nomePalestra, String descricao, String local, String horario, Date data, Palestrante palestrante){
         this.id = id;
         this.nomePalestra = nomePalestra;
         this.descricao = descricao;
-        this.vagas = vagas;
         this.local = local;
         this.horario = horario;
         this.data = data;
         this.palestrate = palestrante;
     }
-    public Palestra(String nomePalestra, String descricao, int vagas, String local, String horario, Date data){
+    public Palestra(String nomePalestra, String descricao, String local, String horario, Date data){
         this.nomePalestra = nomePalestra;
         this.descricao = descricao;
-        this.vagas = vagas;
         this.local = local;
         this.horario = horario;
         this.data = data;
@@ -88,14 +85,6 @@ public class Palestra {
         this.descricao = descricao;
     }
 
-    public int getVagas() {
-        return vagas;
-    }
-
-    public void setVagas(int vagas) {
-        this.vagas = vagas;
-    }
-
     public String getLocal() {
         return local;
     }
@@ -119,6 +108,4 @@ public class Palestra {
     public void setData(Date data) {
         this.data = data;
     }
-    
-    
 }

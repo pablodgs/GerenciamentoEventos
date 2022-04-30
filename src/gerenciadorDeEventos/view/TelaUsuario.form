@@ -163,15 +163,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="cancelBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                      <Component id="deleteBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -180,27 +171,34 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator2" min="-2" pref="576" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelSexo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                          <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtSenha" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                          <Component id="txtNome" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtEmail" min="-2" pref="256" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cancelBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="deleteBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+                                      <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jSeparator2" min="-2" pref="576" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelSexo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jComboBox1" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                                              <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtSenha" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                                              <Component id="txtNome" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtEndereco" pref="256" max="32767" attributes="0"/>
                                               <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelEmail" min="-2" max="-2" attributes="0"/>
                                               <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="labelEmail" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -250,7 +248,7 @@
                           <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -289,6 +287,9 @@
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
             <Component class="javax.swing.JTextField" name="txtEndereco">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.endereco)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="deleteBtn">
               <Properties>
@@ -312,6 +313,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(LoginSession.email)"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="labelEmail">
               <Properties>
@@ -599,42 +603,40 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                                   <Component id="TxtPalestrantePalestra" max="32767" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="TxtNomePalestra" min="-2" pref="143" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="TxtLocalPalestra" min="-2" pref="209" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="TxtLocalPalestra" min="-2" pref="209" max="-2" attributes="0"/>
+                                              <Component id="TxtNomePalestra" min="-2" pref="143" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="TxtDiaPalestra" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Component id="TxtHorarioPalestra" min="-2" pref="82" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                                                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Component id="TxtVagasPalestra" max="32767" attributes="0"/>
                                               </Group>
@@ -653,100 +655,107 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TxtNomeEvento" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="TxtContatoEvento" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TxtNomeEvento" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="TxtContatoEvento" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                      </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TxtDataTerminoEvento" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="TxtDataTerminoEvento" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
+                                  <Component id="TxtDataInicioEvento" min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Component id="TxtDataInicioEvento" min="-2" pref="16" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="TxtLocalEvento" min="-2" pref="16" max="-2" attributes="0"/>
+                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TxtLocalEvento" min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="TxtPrecoEvento" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="TxtNomePalestra" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                           <Component id="TxtVagasPalestra" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="TxtPrecoEvento" min="-2" pref="16" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="TxtHorarioPalestra" min="-2" pref="16" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtPalestrantePalestra" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="TxtDiaPalestra" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TxtLocalPalestra" min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtHorarioPalestra" min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="TxtPalestrantePalestra" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Component id="TxtDiaPalestra" min="-2" pref="16" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="TxtLocalPalestra" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -884,11 +893,6 @@
             <Component class="javax.swing.JLabel" name="TxtHorarioPalestra">
             </Component>
             <Component class="javax.swing.JLabel" name="TxtLocalPalestra">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Vagas: "/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
