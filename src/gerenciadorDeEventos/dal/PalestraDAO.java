@@ -85,7 +85,7 @@ public class PalestraDAO {
     public boolean cadastraPalestra(Evento evento, Palestra palestra){
         ModuloConexao conec = new ModuloConexao();
         Connection dao = conec.getInstance().sqlConnection;
-        String sql = "INSERT INTO palestra(data, descricao, horario, local, nomePalestra, vagas, cpfPalestrante) values ('" + palestra.getData()
+        String sql = "INSERT INTO palestra(data, descricao, horario, local, nomePalestra, cpfPalestrante) values ('" + palestra.getData()
                                                                                                                     + "', '" + palestra.getDescricao()
                                                                                                                     + "', '" + palestra.getHorario()
                                                                                                                     + "', '" + palestra.getLocal()
