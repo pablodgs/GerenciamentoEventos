@@ -34,7 +34,6 @@ public class PalestraDAO {
             String horario = rs.getString("horario");
             String local = rs.getString("local");
             String nome = rs.getString("nomePalestra");
-            int vagas = rs.getInt("vagas");
             String cpfPalestrante = rs.getString("cpfPalestrante");
             
             Palestrante palestrante = palestranteDao.readPalestrante(cpfPalestrante);
